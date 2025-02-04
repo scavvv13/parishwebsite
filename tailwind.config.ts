@@ -11,6 +11,19 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "",
+        secondary: "",
+        neutral: "",
+        accent: "",
+        base: "",
+      },
+      fontFamily: {
+        serif: ["var(--font-bodoni-moda)", "Bodoni Moda", "serif"],
+      },
+      screens: {
+        sm: "200px",
+        md: "768px",
+        lg: "1024px",
       },
     },
   },
