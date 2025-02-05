@@ -42,7 +42,7 @@ const MassIndicator = () => {
           }
         } else {
           setCurrentStatus("No upcoming Masses");
-          setStatusColor("bg-[#7c9dff4e] text-[#2b2b54]"); // Default color
+          setStatusColor("bg-[#7c9dff4e] text-[#2b2b54] border-[#2b2b54]"); // Default color
         }
       }
     };
@@ -52,11 +52,12 @@ const MassIndicator = () => {
 
     return () => clearInterval(interval);
   }, [massSchedule]);
+  //useeffect to check mass status
 
   return (
     <Link
       href={"/mass-schedule"}
-      className={`flex flex-row border  ${statusColor} rounded-full px-6 py-2 font-medium text-[18px] mb-3`}
+      className={`flex flex-row border  ${statusColor} rounded-full px-6 py-2 font-medium text-[18px] mb-3 min-w-[243px]`}
     >
       <div className="w-[5px] h-[5px] rounded-full bg-[#0a5b06] place-self-center mr-3 "></div>
       {currentStatus}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Pinyon_Script, Bodoni_Moda, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
+import Image from "next/image";
 
 const pinyonScript = Pinyon_Script({
   weight: "400",
@@ -103,6 +104,14 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
+        {/* Chatbot */}
+
+        <button className=" fixed bottom-5 right-5 md:bottom-7 md:right-7  flex items-center space-x-2 p-2 shadow-lg hover:scale-105 transition">
+          <span className="hidden sm:inline text-sm md:text-base font-medium px-4 bg-[#1a1aff62] text-white rounded-full border-2 border-blue-800 ">
+            Chat With DonDon
+          </span>
+          <Image src="/chatbot.png" width={50} height={50} alt="Chatbot Icon" />
+        </button>
       </body>
     </html>
   );

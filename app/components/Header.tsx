@@ -1,13 +1,12 @@
 "use client";
 import { useState } from "react";
-import useNavLinks from "../hooks/useNavLinks";
+import { navLinks } from "./Navbar";
 import Link from "next/link";
 import Image from "next/image";
 import MassIndicator from "./MassIndicator";
+import Navbar from "./Navbar";
 
 const Header = () => {
-  const NavLinks = useNavLinks();
-
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -16,15 +15,15 @@ const Header = () => {
   return (
     <>
       {/* main container */}
-      <div className=" w-full h-full flex justify-between items-center pt-3 px-3 lg:px-24 lg:pt-8">
+      <div className=" w-full h-full flex  justify-between items-center pt-3 px-3 lg:px-24 lg:pt-5">
         {/* logo and parish name */}
         <div className="flex items-center space-x-4">
           <img
             src="/madonnalogo.png"
             alt="Madonna del Divino Amore Parish Logo"
-            className="size-16 md:size-13 mb-2"
+            className="size-16 md:size-13 mb-2 min-w-[64px]"
           />
-          <span className="md:hidden sm:hidden lg:block text-4xl font-bold pinyon">
+          <span className="md:hidden sm:hidden lg:block text-4xl font-bold pinyon ">
             Madonna Del Divino Amore Parish
           </span>
         </div>
@@ -33,12 +32,8 @@ const Header = () => {
         <MassIndicator />
 
         {/* Navlinks visible to lg screens only */}
-        <div className="sm:hidden md:hidden lg:block flex space-x-8 text-lg font-medium">
-          {NavLinks.map((link) => (
-            <Link key={link.href} href={link.href}>
-              {link.text}
-            </Link>
-          ))}
+        <div className="hidden lg:flex space-x-8 text-lg font-medium">
+          <Navbar />
         </div>
 
         {/* Sidebar AREA ; CONDITIONAL */}
@@ -58,7 +53,7 @@ const Header = () => {
             </div>
             {/* Navlinks AREA */}
             <div className="pt-12">
-              {NavLinks.map((link) => (
+              {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -83,7 +78,7 @@ const Header = () => {
         )}
 
         {/* menu button visble only to small screens */}
-        <div className="md:hidden lg:hidden">
+        <div className="md: lg:hidden">
           <button
             onClick={toggleSidebar}
             className="focus:outline-none"

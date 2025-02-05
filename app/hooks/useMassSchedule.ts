@@ -1,5 +1,8 @@
+//todo: refactor to fully dynamic schedule where admins can set the schedule in admin panel
+//todo: admin panel
+
 import { useState, useEffect } from "react";
-import { addHours, setHours, setMinutes, isSunday, addDays } from "date-fns";
+import { addHours, setHours, setMinutes, isSunday} from "date-fns";
 
 const useMassSchedule = () => {
   interface MassSchedule {
@@ -41,7 +44,6 @@ const useMassSchedule = () => {
 
     // Sort schedules by start time
     schedules.sort((a, b) => a.start.getTime() - b.start.getTime());
-
     setMassSchedule(schedules);
   }, []);
 
