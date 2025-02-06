@@ -21,6 +21,8 @@ export const navLinks = [
       { text: "Event 2", href: "/events/event2" },
     ],
   },
+
+  { text: "News", href: "/news" },
   {
     text: "Appointment",
     href: "/contact",
@@ -29,9 +31,6 @@ export const navLinks = [
       { text: "Manage Appointment", href: "/contact/manage" },
     ],
   },
-  { text: "About", href: "/about" },
-  { text: "Gallery", href: "/gallery" },
-  { text: "News", href: "/news" },
 ];
 
 const Navbar = () => {

@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Pinyon_Script, Bodoni_Moda, Open_Sans } from "next/font/google";
+import {
+  Pinyon_Script,
+  Bodoni_Moda,
+  Open_Sans,
+  Playfair_Display,
+  Instrument_Serif,
+} from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Image from "next/image";
@@ -17,6 +23,17 @@ const bodoniModa = Bodoni_Moda({
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
+  subsets: ["latin"],
+});
+
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair-display",
+  subsets: ["latin"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  weight: "400",
+  variable: "--font-instrument-serif",
   subsets: ["latin"],
 });
 
@@ -44,7 +61,7 @@ export const metadata: Metadata = {
       "Madonna Del Divino Amore Parish Official Website. A Roman Catholic church located at Ayala Southvale Drive, Las Pinas City. Under the Diocese of Paranaque.",
     images: [
       {
-        url: "/path/to/your/image.jpg",
+        url: "/madonnalogo.png",
         alt: "Madonna Del Divino Amore Parish",
       },
     ],
@@ -59,7 +76,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bodoniModa.variable} ${openSans.variable} ${pinyonScript.variable}`}
+      className={`${bodoniModa.variable} ${openSans.variable} ${pinyonScript.variable} ${playfairDisplay.variable} ${instrumentSerif.variable}`}
     >
       <head>
         <link rel="icon" href="/madonnalogo.png" />
@@ -104,14 +121,6 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
-        {/* Chatbot */}
-
-        <button className=" fixed bottom-5 right-5 md:bottom-7 md:right-7  flex items-center space-x-2 p-2 shadow-lg hover:scale-105 transition">
-          <span className="hidden sm:inline text-sm md:text-base font-medium px-4 bg-[#1a1aff62] text-white rounded-full border-2 border-blue-800 ">
-            Chat With DonDon
-          </span>
-          <Image src="/chatbot.png" width={50} height={50} alt="Chatbot Icon" />
-        </button>
       </body>
     </html>
   );
