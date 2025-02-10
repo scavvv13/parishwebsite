@@ -21,7 +21,6 @@ export const navLinks = [
       { text: "Event 2", href: "/events/event2" },
     ],
   },
-
   { text: "News", href: "/news" },
   {
     text: "Appointment",
@@ -46,50 +45,67 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex space-x-8 text-lg font-medium">
-      {navLinks.map((link) => (
-        <div key={link.href} className="relative flex items-center space-x-1">
-          {/* Parent Nav Text */}
-          <Link href={link.href} className="hover:text-gray-700">
-            {link.text}
-          </Link>
-
-          {/* Dropdown Arrow (if subNav exists) */}
-          {link.subNav && (
-            <button
-              onClick={() => toggleDropdown(link.text)}
-              className="flex items-center"
-              title={`Toggle ${link.text} dropdown`}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                className="size-5" // Adjust vertical positioning
+    <nav className="w-1/2 h-full bg-white border-r border-gray-200">
+      <div className="flex flex-col w-full">
+        {navLinks.map((link) => (
+          <div key={link.href} className="w-full">
+            {/* Parent Nav Item */}
+            <div className="flex items-center justify-between px-4 py-3 hover:bg-gray-50 cursor-pointer">
+              <Link
+                href={link.href}
+                className="text-gray-800 font-medium text-lg hover:text-gray-600 flex-grow"
               >
-                <path d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-              </svg>
-            </button>
-          )}
+                {link.text}
+              </Link>
 
-          {/* Dropdown Menu */}
-          {link.subNav && dropdownOpen[link.text] && (
-            <div className="absolute -top-[120px] left-0 mt-40 w-max bg-white border border-gray-200 rounded shadow-lg">
-              {link.subNav.map((subLink) => (
-                <Link
-                  key={subLink.href}
-                  href={subLink.href}
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 place-self-center w-full"
-                  onClick={() => toggleDropdown(link.text)}
+              {/* Dropdown Arrow */}
+              {link.subNav && (
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toggleDropdown(link.text);
+                  }}
+                  className="p-1 hover:bg-gray-100 rounded-full"
+                  title={`Toggle ${link.text} dropdown`}
                 >
-                  {subLink.text}
-                </Link>
-              ))}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    className={`size-5 transition-transform duration-200 ${
+                      dropdownOpen[link.text] ? "rotate-180" : ""
+                    }`}
+                  >
+                    <path d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </button>
+              )}
             </div>
-          )}
-        </div>
-      ))}
+
+            {/* Dropdown Menu */}
+            {link.subNav && (
+              <div
+                className={`overflow-hidden transition-all duration-200 ease-in-out ${
+                  dropdownOpen[link.text] ? "max-h-96" : "max-h-0"
+                }`}
+              >
+                <div className="bg-gray-50 border-l-4 border-gray-200">
+                  {link.subNav.map((subLink) => (
+                    <Link
+                      key={subLink.href}
+                      href={subLink.href}
+                      className="block px-8 py-2 text-gray-600 hover:bg-gray-100 hover:text-gray-800"
+                    >
+                      {subLink.text}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </nav>
   );
 };
