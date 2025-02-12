@@ -8,7 +8,6 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
-import Image from "next/image";
 
 const pinyonScript = Pinyon_Script({
   weight: "400",
