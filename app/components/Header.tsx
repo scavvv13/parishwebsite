@@ -19,19 +19,19 @@ const Header = () => {
               width={50}
               height={50}
               alt="madonna del divino amore logo"
-              className=" w-16 lg:w-12"
+              className=" w-12 lg:w-12"
             />
             {/* Vertical Line */}
-            <div className="absolute right-[-8px] top-[-11px] h-[calc(100%+18px)] w-[0.75px] bg-black" />
+            <div className="absolute right-[-8px] top-[-12px] h-[calc(100%+20px)] w-[0.75px] bg-black" />
           </div>
 
           {/* Parish name and diocese */}
           <div className="flex items-center">
             <div className="flex flex-col ml-4 sm:ml-5">
-              <strong className="playfair font-black text-xs text-center lg:text-start sm:text-lg lg:text-2xl leading-none lg:leading-none block ">
+              <strong className="playfair font-black text-[12px] text-start  lg:text-2xl leading-none lg:leading-none ">
                 Madonna Del Divino Amore Parish
               </strong>
-              <span className="hidden lg:flex instrument text-[9px] text-center lg:text-start sm:text-base lg:text-lg leading-tight lg:leading-none">
+              <span className=" flex instrument text-[9px] text-center lg:text-start lg:text-lg leading-tight lg:leading-none">
                 Diocese of Parañaque
               </span>
             </div>
@@ -63,7 +63,7 @@ const Header = () => {
           </button>
 
           {/* Login Section */}
-          <div className="hidden h-full lg:flex flex-col items-center justify-center border-l border-black px-8">
+          <div className="hidden h-full lg:flex flex-col items-center justify-center border-l border-l-black px-8">
             <span className="font-bold text-md leading-none">
               Have an Account?
             </span>

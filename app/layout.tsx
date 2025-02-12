@@ -120,7 +120,7 @@ export default function RootLayout({
       </head>
       <body>
         <Header />
-        {children}
+        <div>{children}</div>
       </body>
     </html>
   );
