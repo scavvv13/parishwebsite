@@ -25,3 +25,11 @@
 .helvetica {
   font-family: "Helvetica", "Arial", sans-serif;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}

@@ -25,7 +25,7 @@ export default function Clock() {
 
   return (
     <div className="w-full leading-none lg:mt-7">
-      <div className=" text-[85px] lg:text-[164px] helvetica font-bold">
+      <div className="flex-shrink text-[20vw] lg:text-[10vw] helvetica font-bold">
         {time}
       </div>
       <div className="text-[30px] lg:text-4xl text-gray-600">{date}</div>
