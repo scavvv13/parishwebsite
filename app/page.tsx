@@ -7,13 +7,13 @@ export default function Home() {
       {/* div for lg:left side sm:top ; saints */}
       <div className="w-full lg:w-1/2 mb-6 lg:mb-0">
         <div className="flex flex-row gap-2 lg:gap-4 justify-center lg:justify-start overflow-x-auto">
-          <div className="flex-shrink">
+          <div className="flex">
             <Image src={"/Saint1.png"} alt="Saint 1" width={200} height={20} />
           </div>
-          <div className="flex-shrink">
+          <div className="flex">
             <Image src={"/Saint2.png"} alt="Saint 2" width={200} height={20} />
           </div>
-          <div className="flex-shrink">
+          <div className="flex">
             <Image src={"/Saint3.png"} alt="Saint 3" width={200} height={20} />
           </div>
         </div>

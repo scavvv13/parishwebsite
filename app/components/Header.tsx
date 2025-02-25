@@ -13,7 +13,7 @@ const Header = () => {
         {/* Left side */}
         <div className="flex max-w-[calc(100%-60px)] sm:max-w-[calc(100%-80px)] lg:max-w-[calc(100%-200px)]">
           {/* Image container */}
-          <div className="relative flex items-center">
+          <div className="flex items-center">
             <Image
               src="/madonnalogo.png"
               width={50}
@@ -22,7 +22,7 @@ const Header = () => {
               className=" w-12 lg:w-12"
             />
             {/* Vertical Line */}
-            <div className="absolute right-[-8px] top-[-12px] h-[calc(100%+20px)] w-[0.75px] bg-black" />
+            <div className="absolute sm:left-[66px] left-[70px] top-0 bottom-0 h-full w-[1px] bg-black" />
           </div>
 
           {/* Parish name and diocese */}
