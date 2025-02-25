@@ -20,7 +20,7 @@ export default function Home() {
       </div>
 
       {/* div for lg:right side sm:bottom ; clock and date */}
-      <div className="w-full lg:w-1/2 flex flex-col justify-between">
+      <div className="w-full lg:w-1/2 flex flex-col ">
         <div className="mb-6 lg:mb-0">
           <strong className="playfair text-[30px] lg:text-[72px] font-normal block">
             Mass Schedule
@@ -29,16 +29,16 @@ export default function Home() {
         </div>
 
         {/* div for the two buttons */}
-        <div className="flex flex-col sm:flex-row lg:justify-end justify-center gap-4 font-semibold">
+        <div className="flex flex-col sm:flex-row  gap-4 font-semibold sm:justify-center justify-end sm:pt-20 pt-52">
           <button
             title="Stream Online"
-            className="px-6 sm:px-10 lg:px-[70px] py-[15px] text-xs border border-black lg:text-md whitespace-nowrap"
+            className="px-6 sm:px-10 lg:px-[70px] py-[15px] text-xs border border-black lg:text-md "
           >
             Stream Online
           </button>
           <button
             title="Mass Archive"
-            className="bg-black px-6 sm:px-10 lg:px-[70px] py-[15px] text-xs lg:text-md text-white whitespace-nowrap"
+            className="bg-black px-6 sm:px-10 lg:px-[70px] py-[15px] text-xs lg:text-md text-white "
           >
             Mass Archive
           </button>
