@@ -73,7 +73,7 @@ const Header = () => {
       </header>
       {/* sidebar open  */}
       {isSidebarOpen && (
-        <div>
+        <div className="relative">
           <Navbar />
         </div>
       )}

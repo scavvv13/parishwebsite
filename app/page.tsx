@@ -29,16 +29,16 @@ export default function Home() {
         </div>
 
         {/* div for the two buttons */}
-        <div className="flex flex-col sm:flex-row  gap-4 font-semibold sm:justify-center justify-end sm:pt-20 pt-52">
+        <div className="flex flex-row  gap-4 font-semibold justify-center lg:justify-end pt-20 lg:pt-40">
           <button
             title="Stream Online"
-            className="px-6 sm:px-10 lg:px-[70px] py-[15px] text-xs border border-black lg:text-md "
+            className="px-10 lg:px-[70px] py-[15px] text-xs border border-black lg:text-md "
           >
             Stream Online
           </button>
           <button
             title="Mass Archive"
-            className="bg-black px-6 sm:px-10 lg:px-[70px] py-[15px] text-xs lg:text-md text-white "
+            className="bg-black  px-10 lg:px-[70px] py-[15px] text-xs lg:text-md text-white "
           >
             Mass Archive
           </button>
