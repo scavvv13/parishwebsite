@@ -32,9 +32,10 @@ export default function Home() {
         <div className="flex flex-row  gap-4 font-semibold justify-center lg:justify-end pt-20 lg:pt-40">
           <button
             title="Stream Online"
-            className="px-10 lg:px-[70px] py-[15px] text-xs border border-black lg:text-md "
+            className="px-10 lg:px-[70px] py-[15px] text-xs border border-black lg:text-md relative"
           >
             Stream Online
+            <div className="absolute top-2 right-2 w-[4.5px] h-[4.5px] bg-red-600 rounded-full"></div>
           </button>
           <button
             title="Mass Archive"
