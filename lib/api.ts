@@ -1,4 +1,7 @@
+///[fetching announcements]
+
 export async function getAnnouncements() {
+  //used in main page.tsx
   try {
     const res = await fetch("http://localhost:3000/api/announcements", {
       cache: "no-store", // Prevents Next.js from caching the request
