@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import useMassSchedule from "../hooks/useMassSchedule";
+import useMassSchedule from "../app/hooks/useMassSchedule";
 import { formatDistanceToNow, differenceInMinutes } from "date-fns";
 import Link from "next/link";
 

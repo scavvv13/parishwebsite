@@ -7,7 +7,7 @@ import {
   Instrument_Serif,
 } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
+import Header from "../components/Header";
 
 const pinyonScript = Pinyon_Script({
   weight: "400",

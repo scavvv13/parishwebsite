@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
-import { navLinks } from "../hooks/useNavItems";
+import { navLinks } from "../app/hooks/useNavItems";
 import { usePathname } from "next/navigation"; // ✅ Use usePathname instead of useRouter
 
 const Navbar = () => {

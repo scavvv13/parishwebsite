@@ -3,24 +3,27 @@
 import { useState } from "react";
 import Image from "next/image";
 import Navbar from "./Navbar";
+import Link from "next/link";
 
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <>
-      <header className="relative flex items-center justify-between border-y border-black px-2 py-2 lg:px-3 lg:py-1">
+      <header className="relative flex items-center justify-between border border-black px-2 py-2 lg:px-3 lg:py-1">
         {/* Left side */}
         <div className="flex max-w-[calc(100%-60px)] sm:max-w-[calc(100%-80px)] lg:max-w-[calc(100%-200px)]">
           {/* Image container */}
           <div className="flex items-center">
-            <Image
-              src="/madonnalogo.png"
-              width={50}
-              height={50}
-              alt="madonna del divino amore logo"
-              className=" w-12 lg:w-12"
-            />
+            <Link href="/">
+              <Image
+                src="/madonnalogo.png"
+                width={50}
+                height={50}
+                alt="madonna del divino amore logo"
+                className=" w-12 lg:w-12"
+              />
+            </Link>
             {/* Vertical Line */}
             <div className="absolute sm:left-[66px] left-[70px] top-0 bottom-0 h-full w-[1px] bg-black" />
           </div>
@@ -39,7 +42,7 @@ const Header = () => {
         </div>
 
         {/* Right side */}
-        <div className="absolute top-[-1px] bottom-[-1px] right-0 flex h-[calc(100%+2px)] items-center border-x border-black">
+        <div className="absolute top-[-1px] bottom-[-1px] right-0 flex h-[calc(100%+2px)] items-center border border-l-black border-y-black">
           {/* Menu Icon */}
           <button
             title="sideBarToggle"
@@ -63,12 +66,13 @@ const Header = () => {
           </button>
 
           {/* Login Section */}
-          <div className="hidden h-full lg:flex flex-col items-center justify-center border-l border-l-black px-8">
+
+          <button className="hidden h-full lg:flex flex-col items-center justify-center border-l border-l-black px-8">
             <span className="font-bold text-md leading-none">
               Have an Account?
             </span>
             <span className="font-normal text-sm leading-none">Login here</span>
-          </div>
+          </button>
         </div>
       </header>
       {/* sidebar open  */}
