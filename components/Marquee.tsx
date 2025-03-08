@@ -1,13 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-///[amplify imports]
+import type { Schema } from "../amplify/data/resource";
 
 export default function Marquee({
   announcements,
 }: {
-  announcements: string[];
+  announcements: Schema["announcements"]["type"][];
 }) {
   const repeatedAnnouncements = [...announcements, ...announcements]; // Duplicate for smooth looping
 
@@ -19,7 +18,7 @@ export default function Marquee({
         transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
       >
         {repeatedAnnouncements.map((announcement, index) => (
-          <span key={index}>{announcement}</span>
+          <span key={index}>{announcement.content}</span> // Ensure correct property
         ))}
       </motion.div>
     </div>

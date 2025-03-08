@@ -4,7 +4,7 @@ import Clock from "@/components/Clock";
 
 const Schedule = () => {
   return (
-    <div className="flex flex-col lg:flex-row justify-between px-2 lg:px-14 py-8 min-h-screen w-full overflow-x-hidden">
+    <div className="flex flex-col lg:flex-row justify-between px-2 mt-10 lg:px-14 py-8 min-h-screen w-full overflow-x-hidden">
       {/* div for lg:left side sm:top ; saints */}
       <div className="w-full lg:w-1/2 mb-6 lg:mb-0">
         <div className="flex flex-row gap-2 lg:gap-4 justify-center lg:justify-start overflow-x-auto">

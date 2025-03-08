@@ -1,18 +1,37 @@
 import { NextResponse } from "next/server";
-import { unstable_cache } from "next/cache";
-import { revalidateTag } from "next/cache";
+import { unstable_cache, revalidateTag } from "next/cache";
+import type { Schema } from "@/amplify/data/resource";
+import { generateClient } from "aws-amplify/data";
 
-// Mock data source (this could be a DB query)
-const ANNOUNCEMENTS = [
-  "📢 Baptismal certificates are now available for those baptized last March 25, 2024.",
-  "📢 The parish office will not take appointment scheduling through the office starting next Sunday.",
-];
+// Initialize Amplify client
+const client = generateClient<Schema>();
 
-// Wrap the API response with `unstable_cache` and assign it a tag
+// Fetch announcements from Amplify and filter valid ones
+const fetchAnnouncements = async () => {
+  try {
+    const { data: items, errors } = await client.models.announcements.list();
+
+    if (errors) {
+      console.error("Amplify errors:", errors);
+      return [];
+    }
+
+    return items
+      .map((item) => item.content)
+      .filter((text): text is string => !!text); // Remove nulls
+  } catch (error) {
+    console.error("Error fetching announcements:", error);
+    return [];
+  }
+};
+
+// Cache Amplify announcements for SSR with a revalidation strategy
 const getCachedAnnouncements = unstable_cache(
-  async () => ANNOUNCEMENTS,
-  ["announcements"], // Cache tag
-  { revalidate: 20 } // Default refresh every 20s
+  fetchAnnouncements,
+  ["announcements"],
+  {
+    revalidate: 20, // Revalidate every 20s
+  }
 );
 
 export async function GET() {
@@ -20,7 +39,8 @@ export async function GET() {
   return NextResponse.json({ announcements });
 }
 
+// Manual cache revalidation when announcements are updated
 export async function POST() {
-  revalidateTag("announcements"); // Manually refresh cache
+  revalidateTag("announcements");
   return NextResponse.json({ success: true });
 }
