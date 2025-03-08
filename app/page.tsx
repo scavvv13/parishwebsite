@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import Schedule from "@/components/Schedule";
-import { getAnnouncements } from "@/lib/api"; // Import function
+import { getAnnouncements } from "@/lib/api";
 
 export const dynamic = "force-dynamic"; // Ensures fresh fetch on each request
 export default async function Home() {

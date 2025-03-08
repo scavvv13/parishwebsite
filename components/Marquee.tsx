@@ -1,5 +1,10 @@
 "use client";
+
 import { motion } from "framer-motion";
+
+///[amplify imports]
+import type { Schema } from "../amplify/data/resource";
+import { generateClient } from "aws-amplify/data";
 
 export default function Marquee({
   announcements,

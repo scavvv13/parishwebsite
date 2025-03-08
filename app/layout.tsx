@@ -8,6 +8,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
+import AmplifyProvider from "@/components/AmplifyProvider";
 
 const pinyonScript = Pinyon_Script({
   weight: "400",
@@ -118,8 +119,10 @@ export default function RootLayout({
         </script>
       </head>
       <body>
-        <Header />
-        <div>{children}</div>
+        <AmplifyProvider>
+          <Header />
+          <div>{children}</div>
+        </AmplifyProvider>
       </body>
     </html>
   );
