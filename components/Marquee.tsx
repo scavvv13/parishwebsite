@@ -9,7 +9,7 @@ export default function Marquee({
   announcements: Schema["announcements"]["type"][];
 }) {
   const repeatedAnnouncements = [...announcements, ...announcements]; // Duplicate for smooth looping
-
+  //ssr so fetching of data is in app/page.tsx
   return (
     <div className="overflow-hidden border-y border-black bg-gray-100 w-full">
       <motion.div
