@@ -1,0 +1,1202 @@
+{
+  "version": "40.0.0",
+  "artifacts": {
+    "amplify-parishwebsite-Scave-sandbox-9c0da9e024.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "amplify-parishwebsite-Scave-sandbox-9c0da9e024.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "amplify-parishwebsite-Scave-sandbox-9c0da9e024": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "amplify-parishwebsite-Scave-sandbox-9c0da9e024.template.json",
+        "terminationProtection": false,
+        "tags": {
+          "amplify:deployment-type": "sandbox",
+          "created-by": "amplify"
+        },
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/8854abd537f5a75f6aa23b9bff8fbe5ab061df0ee93439f0b08193d4bcc6c958.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "amplify-parishwebsite-Scave-sandbox-9c0da9e024.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "amplify-parishwebsite-Scave-sandbox-9c0da9e024.assets"
+      ],
+      "metadata": {
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "amplify:deployment-type",
+                "Value": "sandbox"
+              },
+              {
+                "Key": "created-by",
+                "Value": "amplify"
+              }
+            ]
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/deploymentType": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "deploymentType"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/region": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "region"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/auth/amplifyAuth/UserPool/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyAuthUserPool4BA7F805"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/auth/amplifyAuth/UserPoolAppClient/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyAuthUserPoolAppClient2626C6F8"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/auth/amplifyAuth/IdentityPool": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyAuthIdentityPool3FDE84CC"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/auth/amplifyAuth/authenticatedUserRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyAuthauthenticatedUserRoleD8DA3689"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/auth/amplifyAuth/unauthenticatedUserRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyAuthunauthenticatedUserRole2B524D9E"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/auth/amplifyAuth/IdentityPoolRoleAttachment": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyAuthIdentityPoolRoleAttachment045F17C8"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/auth/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/auth/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/auth/amplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthUserPool7A230E10Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthUserPool7A230E10Ref"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/auth/amplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthUserPoolAppClientDBD66BD2Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthUserPoolAppClientDBD66BD2Ref"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/auth/amplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthIdentityPool27A87616Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthIdentityPool27A87616Ref"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/auth/amplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthauthenticatedUserRoleE0A45118Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthauthenticatedUserRoleE0A45118Ref"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/auth/amplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthunauthenticatedUserRoleBB45C806Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthunauthenticatedUserRoleBB45C806Ref"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/auth.NestedStack/auth.NestedStackResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "auth179371D7"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/userPoolId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "userPoolId"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/webClientId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "webClientId"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/identityPoolId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "identityPoolId"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/authRegion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "authRegion"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/allowUnauthenticatedIdentities": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "allowUnauthenticatedIdentities"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/signupAttributes": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "signupAttributes"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/usernameAttributes": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "usernameAttributes"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/verificationMechanisms": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "verificationMechanisms"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/passwordPolicyMinLength": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "passwordPolicyMinLength"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/passwordPolicyRequirements": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "passwordPolicyRequirements"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/mfaConfiguration": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "mfaConfiguration"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/mfaTypes": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "mfaTypes"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/socialProviders": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "socialProviders"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/oauthCognitoDomain": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oauthCognitoDomain"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/oauthScope": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oauthScope"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/oauthRedirectSignIn": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oauthRedirectSignIn"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/oauthRedirectSignOut": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oauthRedirectSignOut"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/oauthResponseType": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oauthResponseType"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/oauthClientId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oauthClientId"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/groups": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "groups"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/GraphQLAPI/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyDataGraphQLAPI42A6FA33"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/GraphQLAPI/TransformerSchema": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyDataGraphQLAPITransformerSchemaFF50A789"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/GraphQLAPI/NONE_DS": [
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "NONE_DS"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/GraphQLAPI/NONE_DS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyDataGraphQLAPINONEDS684BF699"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "NONE_DS"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AmplifyTableManager/AmplifyManagedTableIsCompleteRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AmplifyManagedTableIsCompleteRoleF825222C"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AmplifyTableManager/AmplifyManagedTableOnEventRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AmplifyManagedTableOnEventRoleB4E71DEA"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AmplifyTableManager/AmplifyManagedTableOnEventRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AmplifyManagedTableOnEventRoleDefaultPolicyF6DABCB6"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AmplifyTableManager/TableManagerCustomProvider/framework-onEvent/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TableManagerCustomProviderframeworkonEvent1DFC2ECC"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AmplifyTableManager/TableManagerCustomProvider/framework-isComplete/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TableManagerCustomProviderframeworkisComplete2E51021B"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AmplifyTableManager/AmplifyTableWaiterStateMachine/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AmplifyTableWaiterStateMachineRole470BE899"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AmplifyTableManager/AmplifyTableWaiterStateMachine/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AmplifyTableWaiterStateMachineRoleDefaultPolicy89F3836A"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AmplifyTableManager/AmplifyTableWaiterStateMachine/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AmplifyTableWaiterStateMachine060600BC"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AmplifyTableManager/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AmplifyTableManager/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AmplifyTableManager/reference-to-amplifyparishwebsiteScavesandbox9c0da9e024dataamplifyDataGraphQLAPI1E97A8CAApiId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoamplifyparishwebsiteScavesandbox9c0da9e024dataamplifyDataGraphQLAPI1E97A8CAApiId"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AmplifyTableManager/amplifyparishwebsiteScavesandbox9c0da9e024dataamplifyDataAmplifyTableManagerTableManagerCustomProviderframeworkonEventCA9F7C60Arn": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyparishwebsiteScavesandbox9c0da9e024dataamplifyDataAmplifyTableManagerTableManagerCustomProviderframeworkonEventCA9F7C60Arn"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AmplifyTableManager.NestedStack/AmplifyTableManager.NestedStackResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResource86290833"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/DynamoDBModelTableReadIOPS": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBModelTableReadIOPS"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/DynamoDBModelTableWriteIOPS": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBModelTableWriteIOPS"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/DynamoDBBillingMode": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBBillingMode"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/DynamoDBEnablePointInTimeRecovery": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBEnablePointInTimeRecovery"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/DynamoDBEnableServerSideEncryption": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBEnableServerSideEncryption"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/HasEnvironmentParameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HasEnvironmentParameter"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/ShouldUsePayPerRequestBilling": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ShouldUsePayPerRequestBilling"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/ShouldUsePointInTimeRecovery": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ShouldUsePointInTimeRecovery"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/TodoTable": [
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "Todo"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/TodoTable/Default/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TodoTable"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "Todo"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/CustomTableTodoTable": [
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "Todo"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/GetAttTodoTableStreamArn": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GetAttTodoTableStreamArn"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/GetAttTodoTableName": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GetAttTodoTableName"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/TodoIAMRole": [
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "TodoIAMRole"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/TodoIAMRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TodoIAMRole2DA8E66E"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "TodoIAMRole"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/TodoDataSource": [
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "TodoTable"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/TodoDataSource/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TodoDataSource"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "TodoTable"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/QuerygetTodoauth0Function/QuerygetTodoauth0Function.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QuerygetTodoauth0FunctionQuerygetTodoauth0FunctionAppSyncFunction846D8436"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "QuerygetTodoauth0Function"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/QuerygetTodopostAuth0Function/QuerygetTodopostAuth0Function.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QuerygetTodopostAuth0FunctionQuerygetTodopostAuth0FunctionAppSyncFunction6BE14593"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "QuerygetTodopostAuth0Function"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/QueryGetTodoDataResolverFn/QueryGetTodoDataResolverFn.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueryGetTodoDataResolverFnQueryGetTodoDataResolverFnAppSyncFunctionE2B57DAD"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "QueryGetTodoDataResolverFn"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/queryGetTodoResolver": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GetTodoResolver"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "Query.getTodo"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/QuerylistTodosauth0Function/QuerylistTodosauth0Function.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QuerylistTodosauth0FunctionQuerylistTodosauth0FunctionAppSyncFunction7D761961"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "QuerylistTodosauth0Function"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/QuerylistTodospostAuth0Function/QuerylistTodospostAuth0Function.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QuerylistTodospostAuth0FunctionQuerylistTodospostAuth0FunctionAppSyncFunction154D8577"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "QuerylistTodospostAuth0Function"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/QueryListTodosDataResolverFn/QueryListTodosDataResolverFn.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "QueryListTodosDataResolverFnQueryListTodosDataResolverFnAppSyncFunctionF825FE47"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "QueryListTodosDataResolverFn"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/queryListTodosResolver": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ListTodoResolver"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "Query.listTodos"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/MutationcreateTodoinit0Function/MutationcreateTodoinit0Function.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MutationcreateTodoinit0FunctionMutationcreateTodoinit0FunctionAppSyncFunction54DE5B8B"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "MutationcreateTodoinit0Function"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/MutationcreateTodoauth0Function/MutationcreateTodoauth0Function.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MutationcreateTodoauth0FunctionMutationcreateTodoauth0FunctionAppSyncFunction21817E36"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "MutationcreateTodoauth0Function"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/MutationcreateTodopostAuth0Function/MutationcreateTodopostAuth0Function.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MutationcreateTodopostAuth0FunctionMutationcreateTodopostAuth0FunctionAppSyncFunctionED59EB9F"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "MutationcreateTodopostAuth0Function"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/MutationCreateTodoDataResolverFn/MutationCreateTodoDataResolverFn.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MutationCreateTodoDataResolverFnMutationCreateTodoDataResolverFnAppSyncFunction900EC5CF"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "MutationCreateTodoDataResolverFn"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/mutationCreateTodoResolver": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CreateTodoResolver"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "Mutation.createTodo"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/MutationupdateTodoinit0Function/MutationupdateTodoinit0Function.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MutationupdateTodoinit0FunctionMutationupdateTodoinit0FunctionAppSyncFunction1B95BB19"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "MutationupdateTodoinit0Function"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/MutationupdateTodoauth0Function/MutationupdateTodoauth0Function.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MutationupdateTodoauth0FunctionMutationupdateTodoauth0FunctionAppSyncFunction1E4A3112"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "MutationupdateTodoauth0Function"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/MutationupdateTodopostAuth0Function/MutationupdateTodopostAuth0Function.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MutationupdateTodopostAuth0FunctionMutationupdateTodopostAuth0FunctionAppSyncFunction50C507D7"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "MutationupdateTodopostAuth0Function"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/MutationUpdateTodoDataResolverFn/MutationUpdateTodoDataResolverFn.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MutationUpdateTodoDataResolverFnMutationUpdateTodoDataResolverFnAppSyncFunctionBC238C49"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "MutationUpdateTodoDataResolverFn"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/mutationUpdateTodoResolver": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UpdateTodoResolver"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "Mutation.updateTodo"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/MutationdeleteTodoauth0Function/MutationdeleteTodoauth0Function.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MutationdeleteTodoauth0FunctionMutationdeleteTodoauth0FunctionAppSyncFunctionC82C218C"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "MutationdeleteTodoauth0Function"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/MutationdeleteTodopostAuth0Function/MutationdeleteTodopostAuth0Function.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MutationdeleteTodopostAuth0FunctionMutationdeleteTodopostAuth0FunctionAppSyncFunction483271A2"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "MutationdeleteTodopostAuth0Function"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/MutationDeleteTodoDataResolverFn/MutationDeleteTodoDataResolverFn.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MutationDeleteTodoDataResolverFnMutationDeleteTodoDataResolverFnAppSyncFunction3879153F"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "MutationDeleteTodoDataResolverFn"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/mutationDeleteTodoResolver": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DeleteTodoResolver"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "Mutation.deleteTodo"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/SubscriptiononCreateTodoauth0Function/SubscriptiononCreateTodoauth0Function.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SubscriptiononCreateTodoauth0FunctionSubscriptiononCreateTodoauth0FunctionAppSyncFunction042EF9E1"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "SubscriptiononCreateTodoauth0Function"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/SubscriptiononCreateTodopostAuth0Function/SubscriptiononCreateTodopostAuth0Function.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SubscriptiononCreateTodopostAuth0FunctionSubscriptiononCreateTodopostAuth0FunctionAppSyncFunction18E34C4E"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "SubscriptiononCreateTodopostAuth0Function"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/SubscriptionOnCreateTodoDataResolverFn/SubscriptionOnCreateTodoDataResolverFn.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SubscriptionOnCreateTodoDataResolverFnSubscriptionOnCreateTodoDataResolverFnAppSyncFunction462A70C9"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "SubscriptionOnCreateTodoDataResolverFn"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/subscriptionOnCreateTodoResolver": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SubscriptiononCreateTodoResolver"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "Subscription.onCreateTodo"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/SubscriptiononUpdateTodoauth0Function/SubscriptiononUpdateTodoauth0Function.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SubscriptiononUpdateTodoauth0FunctionSubscriptiononUpdateTodoauth0FunctionAppSyncFunction80D0DFA3"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "SubscriptiononUpdateTodoauth0Function"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/SubscriptiononUpdateTodopostAuth0Function/SubscriptiononUpdateTodopostAuth0Function.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SubscriptiononUpdateTodopostAuth0FunctionSubscriptiononUpdateTodopostAuth0FunctionAppSyncFunction04445BC7"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "SubscriptiononUpdateTodopostAuth0Function"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/SubscriptionOnUpdateTodoDataResolverFn/SubscriptionOnUpdateTodoDataResolverFn.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SubscriptionOnUpdateTodoDataResolverFnSubscriptionOnUpdateTodoDataResolverFnAppSyncFunction523DF0E4"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "SubscriptionOnUpdateTodoDataResolverFn"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/subscriptionOnUpdateTodoResolver": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SubscriptiononUpdateTodoResolver"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "Subscription.onUpdateTodo"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/SubscriptiononDeleteTodoauth0Function/SubscriptiononDeleteTodoauth0Function.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SubscriptiononDeleteTodoauth0FunctionSubscriptiononDeleteTodoauth0FunctionAppSyncFunctionF69F2220"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "SubscriptiononDeleteTodoauth0Function"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/SubscriptiononDeleteTodopostAuth0Function/SubscriptiononDeleteTodopostAuth0Function.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SubscriptiononDeleteTodopostAuth0FunctionSubscriptiononDeleteTodopostAuth0FunctionAppSyncFunctionE131CBE7"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "SubscriptiononDeleteTodopostAuth0Function"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/SubscriptionOnDeleteTodoDataResolverFn/SubscriptionOnDeleteTodoDataResolverFn.AppSyncFunction": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SubscriptionOnDeleteTodoDataResolverFnSubscriptionOnDeleteTodoDataResolverFnAppSyncFunction3E641E8C"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "SubscriptionOnDeleteTodoDataResolverFn"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/subscriptionOnDeleteTodoResolver": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SubscriptiononDeleteTodoResolver"
+          },
+          {
+            "type": "graphqltransformer:resourceName",
+            "data": "Subscription.onDeleteTodo"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/reference-to-amplifyparishwebsiteScavesandbox9c0da9e024dataamplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResourceBBC64378Outputs.amplifyparishwebsiteScavesandbox9c0da9e024dataamplifyDataAmplifyTableManagerTableManagerCustomProviderframeworkonEventCA9F7C60Arn": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoamplifyparishwebsiteScavesandbox9c0da9e024dataamplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResourceBBC64378OutputsamplifyparishwebsiteScavesandbox9c0da9e024dataamplifyDataAmplifyTableManagerTableManagerC956D952E"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/reference-to-amplifyparishwebsiteScavesandbox9c0da9e024dataamplifyDataGraphQLAPI1E97A8CAApiId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoamplifyparishwebsiteScavesandbox9c0da9e024dataamplifyDataGraphQLAPI1E97A8CAApiId"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/reference-to-amplifyparishwebsiteScavesandbox9c0da9e024dataamplifyDataGraphQLAPINONEDS3D8B8E0AName": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoamplifyparishwebsiteScavesandbox9c0da9e024dataamplifyDataGraphQLAPINONEDS3D8B8E0AName"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/reference-to-amplifyparishwebsiteScavesandbox9c0da9e024authNestedStackauthNestedStackResource178B1F3EOutputs.amplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthauthenticatedUserRoleE0A45118Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoamplifyparishwebsiteScavesandbox9c0da9e024authNestedStackauthNestedStackResource178B1F3EOutputsamplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthauthenticatedUserRoleE0A45118Ref"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/reference-to-amplifyparishwebsiteScavesandbox9c0da9e024authNestedStackauthNestedStackResource178B1F3EOutputs.amplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthunauthenticatedUserRoleBB45C806Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoamplifyparishwebsiteScavesandbox9c0da9e024authNestedStackauthNestedStackResource178B1F3EOutputsamplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthunauthenticatedUserRoleBB45C806Ref"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo/reference-to-amplifyparishwebsiteScavesandbox9c0da9e024authNestedStackauthNestedStackResource178B1F3EOutputs.amplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthIdentityPool27A87616Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoamplifyparishwebsiteScavesandbox9c0da9e024authNestedStackauthNestedStackResource178B1F3EOutputsamplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthIdentityPool27A87616Ref"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/Todo.NestedStack/Todo.NestedStackResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyDataTodoNestedStackTodoNestedStackResource551CEA56"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AuthRolePolicy01/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyDataAuthRolePolicy01567A5654"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/UnauthRolePolicy01/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyDataUnauthRolePolicy01355B9DCF"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucket9CCB4ACA"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucketPolicyF1C1C548"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsBucket/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucketAutoDeleteObjectsCustomResource437F26F5"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsDeployment/AwsCliLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentAwsCliLayerE322F905"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsDeployment/CustomResource-1536MiB/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentCustomResource1536MiB21775929"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/DynamoDBModelTableReadIOPS": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBModelTableReadIOPS"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/DynamoDBModelTableWriteIOPS": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBModelTableWriteIOPS"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/DynamoDBBillingMode": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBBillingMode"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/DynamoDBEnablePointInTimeRecovery": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBEnablePointInTimeRecovery"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/DynamoDBEnableServerSideEncryption": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBEnableServerSideEncryption"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/LatestNodeRuntimeMap": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LatestNodeRuntimeMap"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/Custom::S3AutoDeleteObjectsCustomResourceProvider": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+            "data": true
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-singleton",
+            "data": true
+          },
+          {
+            "type": "aws:cdk:is-custom-resource-handler-runtime-family",
+            "data": 2
+          },
+          {
+            "type": "aws:cdk:is-custom-resource-handler-singleton",
+            "data": true
+          },
+          {
+            "type": "aws:cdk:is-custom-resource-handler-runtime-family",
+            "data": 2
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBServiceRoleA41FC8C2"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBServiceRoleDefaultPolicyFF1C635B"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBC5D8AB21"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/modelIntrospectionSchemaBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "modelIntrospectionSchemaBucketF566B665"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/modelIntrospectionSchemaBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "modelIntrospectionSchemaBucketPolicy4DAB0D15"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/modelIntrospectionSchemaBucket/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "modelIntrospectionSchemaBucketAutoDeleteObjectsCustomResourceFE57309F"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/modelIntrospectionSchemaBucketDeployment/AwsCliLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "modelIntrospectionSchemaBucketDeploymentAwsCliLayer13C432F7"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/modelIntrospectionSchemaBucketDeployment/CustomResource-1536MiB/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "modelIntrospectionSchemaBucketDeploymentCustomResource1536MiB104B97EC"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/AMPLIFY_DATA_GRAPHQL_ENDPOINTParameter/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AMPLIFYDATAGRAPHQLENDPOINTParameter1C2CBB16"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/AMPLIFY_DATA_MODEL_INTROSPECTION_SCHEMA_BUCKET_NAMEParameter/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AMPLIFYDATAMODELINTROSPECTIONSCHEMABUCKETNAMEParameter47BF4F44"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/AMPLIFY_DATA_MODEL_INTROSPECTION_SCHEMA_KEYParameter/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AMPLIFYDATAMODELINTROSPECTIONSCHEMAKEYParameterB6AEAE8A"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/AMPLIFY_DATA_DEFAULT_NAMEParameter/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AMPLIFYDATADEFAULTNAMEParameterE7C23CC4"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/reference-to-amplifyparishwebsiteScavesandbox9c0da9e024authNestedStackauthNestedStackResource178B1F3EOutputs.amplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthUserPool7A230E10Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoamplifyparishwebsiteScavesandbox9c0da9e024authNestedStackauthNestedStackResource178B1F3EOutputsamplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthUserPool7A230E10Ref"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/reference-to-amplifyparishwebsiteScavesandbox9c0da9e024authNestedStackauthNestedStackResource178B1F3EOutputs.amplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthauthenticatedUserRoleE0A45118Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoamplifyparishwebsiteScavesandbox9c0da9e024authNestedStackauthNestedStackResource178B1F3EOutputsamplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthauthenticatedUserRoleE0A45118Ref"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/reference-to-amplifyparishwebsiteScavesandbox9c0da9e024authNestedStackauthNestedStackResource178B1F3EOutputs.amplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthunauthenticatedUserRoleBB45C806Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoamplifyparishwebsiteScavesandbox9c0da9e024authNestedStackauthNestedStackResource178B1F3EOutputsamplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthunauthenticatedUserRoleBB45C806Ref"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/reference-to-amplifyparishwebsiteScavesandbox9c0da9e024authNestedStackauthNestedStackResource178B1F3EOutputs.amplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthIdentityPool27A87616Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoamplifyparishwebsiteScavesandbox9c0da9e024authNestedStackauthNestedStackResource178B1F3EOutputsamplifyparishwebsiteScavesandbox9c0da9e024authamplifyAuthIdentityPool27A87616Ref"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyparishwebsiteScavesandbox9c0da9e024dataamplifyDataGraphQLAPI1E97A8CAApiId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyparishwebsiteScavesandbox9c0da9e024dataamplifyDataGraphQLAPI1E97A8CAApiId"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyparishwebsiteScavesandbox9c0da9e024dataamplifyDataGraphQLAPI1E97A8CAGraphQLUrl": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyparishwebsiteScavesandbox9c0da9e024dataamplifyDataGraphQLAPI1E97A8CAGraphQLUrl"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data/amplifyparishwebsiteScavesandbox9c0da9e024dataamplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentCustomResource1536MiB6EE5CCEBDestinationBucketArn": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyparishwebsiteScavesandbox9c0da9e024dataamplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentCustomResource1536MiB6EE5CCEBDestinationBucketArn"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/data.NestedStack/data.NestedStackResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "data7552DF31"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/awsAppsyncApiId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "awsAppsyncApiId"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/awsAppsyncApiEndpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "awsAppsyncApiEndpoint"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/awsAppsyncAuthenticationType": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "awsAppsyncAuthenticationType"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/awsAppsyncRegion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "awsAppsyncRegion"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/amplifyApiModelSchemaS3Uri": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyApiModelSchemaS3Uri"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/awsAppsyncAdditionalAuthenticationTypes": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "awsAppsyncAdditionalAuthenticationTypes"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/amplify-parishwebsite-Scave-sandbox-9c0da9e024/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "amplify-parishwebsite-Scave-sandbox-9c0da9e024"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
