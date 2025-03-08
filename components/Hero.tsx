@@ -20,7 +20,7 @@ export default function Hero() {
           className="size-24"
         />
       </div>
-      <h3 className="text-3xl instrument">
+      <h3 className="text-3xl instrument text-[#412121]">
         Roman Catholic Diocese of Paranaque
       </h3>
       <strong className="text-6xl font-extrabold mt-2 playfair">

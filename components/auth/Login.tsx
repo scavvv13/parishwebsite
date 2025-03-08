@@ -23,7 +23,7 @@ export default function Login() {
   return (
     <div className="w-full">
       <strong className="playfair font-black text-5xl">Login</strong>
-      <div className="flex flex-row gap-4 mt-10">
+      <div className="flex flex-row gap-4 mt-10 ">
         <Button variant="outline" className="w-full flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +102,7 @@ export default function Login() {
       </form>
       <Separator className="my-4" />
       <p className="text-center text-sm">
-        Don't have an account?{" "}
+        Don&apos;t have an account?{" "}
         <button
           onClick={() =>
             router.push("?registerModal=register", { scroll: false })

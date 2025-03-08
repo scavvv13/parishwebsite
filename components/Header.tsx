@@ -46,10 +46,6 @@ const RegisterModal = () => {
   const router = useRouter();
   const isRegisterModalOpen = searchParams.get("registerModal") === "register";
 
-  const openRegisterModal = () => {
-    router.push("?registerModal=register", { scroll: false });
-  };
-
   const closeRegisterModal = () => {
     router.push("/", { scroll: false });
   };
