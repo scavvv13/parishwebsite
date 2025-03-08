@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import Image from "next/image";
 import Navbar from "./Navbar";
 import Link from "next/link";
@@ -8,11 +8,9 @@ import { useSearchParams, useRouter } from "next/navigation";
 import Modal from "./Modal";
 import Register from "./auth/Register";
 
-const Header = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+const LoginModal = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
-
   const isLoginModalOpen = searchParams.get("loginModal") === "login";
 
   const openLoginModal = () => {
@@ -22,6 +20,28 @@ const Header = () => {
   const closeLoginModal = () => {
     router.push("/", { scroll: false });
   };
+
+  return (
+    <>
+      {/* Login Section */}
+      <button
+        onClick={openLoginModal}
+        className="hidden h-full lg:flex flex-col items-center justify-center border-l border-l-black px-8"
+      >
+        <span className="font-bold text-md leading-none">Have an Account?</span>
+        <span className="font-normal text-sm leading-none">Login here</span>
+      </button>
+
+      {/* Modal */}
+      <Modal isOpen={isLoginModalOpen} onClose={closeLoginModal}>
+        <Register />
+      </Modal>
+    </>
+  );
+};
+
+const Header = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <>
@@ -80,16 +100,10 @@ const Header = () => {
             </svg>
           </button>
 
-          {/* Login Section */}
-          <button
-            onClick={openLoginModal}
-            className="hidden h-full lg:flex flex-col items-center justify-center border-l border-l-black px-8"
-          >
-            <span className="font-bold text-md leading-none">
-              Have an Account?
-            </span>
-            <span className="font-normal text-sm leading-none">Login here</span>
-          </button>
+          {/* Login Modal (wrapped in Suspense) */}
+          <Suspense fallback={null}>
+            <LoginModal />
+          </Suspense>
         </div>
       </header>
 
@@ -99,11 +113,6 @@ const Header = () => {
           <Navbar />
         </div>
       )}
-
-      {/* Modal */}
-      <Modal isOpen={isLoginModalOpen} onClose={closeLoginModal}>
-        <Register />
-      </Modal>
     </>
   );
 };
