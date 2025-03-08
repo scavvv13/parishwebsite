@@ -7,27 +7,22 @@ import { Label } from "../ui/label";
 import { Separator } from "../ui/separator";
 import { useRouter } from "next/navigation";
 
-export default function Register() {
+export default function Login() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      setError("Passwords do not match!");
-      return;
-    }
     setError("");
     console.log({ email, password });
-    // TODO: Handle registration logic (API call, etc.)
+    // TODO: Handle login logic (API call, etc.)
   };
 
   return (
     <div className="w-full">
-      <strong className="playfair font-black text-5xl">Register</strong>
+      <strong className="playfair font-black text-5xl">Login</strong>
       <div className="flex flex-row gap-4 mt-10">
         <Button variant="outline" className="w-full flex items-center gap-2">
           <svg
@@ -99,33 +94,22 @@ export default function Register() {
           />
         </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="confirm-password">Confirm Password</Label>
-          <Input
-            id="confirm-password"
-            type="password"
-            placeholder="Confirm your password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </div>
-
         {error && <p className="text-red-500 text-sm">{error}</p>}
 
         <Button type="submit" className="w-full">
-          Register
+          Login
         </Button>
       </form>
-
       <Separator className="my-4" />
       <p className="text-center text-sm">
-        Already have an account?{" "}
+        Don't have an account?{" "}
         <button
-          onClick={() => router.push("?loginModal=login", { scroll: false })}
+          onClick={() =>
+            router.push("?registerModal=register", { scroll: false })
+          }
           className="text-black font-bold"
         >
-          Login
+          Register
         </button>
       </p>
     </div>

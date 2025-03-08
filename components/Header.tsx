@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
 import Modal from "./Modal";
 import Register from "./auth/Register";
+import Login from "./auth/Login";
 
 const LoginModal = () => {
   const searchParams = useSearchParams();
@@ -34,6 +35,28 @@ const LoginModal = () => {
 
       {/* Modal */}
       <Modal isOpen={isLoginModalOpen} onClose={closeLoginModal}>
+        <Login />
+      </Modal>
+    </>
+  );
+};
+
+const RegisterModal = () => {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const isRegisterModalOpen = searchParams.get("registerModal") === "register";
+
+  const openRegisterModal = () => {
+    router.push("?registerModal=register", { scroll: false });
+  };
+
+  const closeRegisterModal = () => {
+    router.push("/", { scroll: false });
+  };
+
+  return (
+    <>
+      <Modal isOpen={isRegisterModalOpen} onClose={closeRegisterModal}>
         <Register />
       </Modal>
     </>
@@ -103,6 +126,7 @@ const Header = () => {
           {/* Login Modal (wrapped in Suspense) */}
           <Suspense fallback={null}>
             <LoginModal />
+            <RegisterModal />
           </Suspense>
         </div>
       </header>
