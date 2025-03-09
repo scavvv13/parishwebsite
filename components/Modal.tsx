@@ -44,7 +44,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.1 }}
             className="relative bg-white p-6 rounded-lg shadow-lg max-w-lg w-full"
           >
             <Button

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Suspense } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import Navbar from "./Navbar";
 import Link from "next/link";
@@ -8,6 +8,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import Modal from "./Modal";
 import Register from "./auth/Register";
 import Login from "./auth/Login";
+import { motion, useAnimation } from "framer-motion";
 
 const LoginModal = () => {
   const searchParams = useSearchParams();
@@ -60,11 +61,52 @@ const RegisterModal = () => {
 };
 
 const Header = () => {
+  const [scrolling, setScrolling] = useState(false);
+  const [hasBorder, setHasBorder] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const controls = useAnimation();
+
+  ///[header useEffects]
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setHasBorder(false); // Hide border when scrolling
+        controls.start({
+          backdropFilter: "blur(10px)",
+          backgroundColor: "rgba(255, 255, 255, 0.5)", // Semi-transparent white
+          borderBottom: "1px solid transparent", // Hide border
+        });
+      } else {
+        setHasBorder(true); // Show border at top
+        controls.start({
+          backdropFilter: "blur(0px)",
+          backgroundColor: "rgba(255, 255, 255, 1)", // Solid white
+          borderBottom: "1px solid black", // Show border
+        });
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [controls]);
 
   return (
     <>
-      <header className="relative flex items-center justify-between border border-black px-2 py-2 lg:px-3 lg:py-1">
+      <motion.header
+        animate={controls}
+        initial={{
+          backdropFilter: "blur(0px)",
+          borderBottom: "1px solid ",
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className={`fixed top-0 left-0 right-0 flex items-center justify-between px-2 py-2 lg:px-3 lg:py-2 z-50 
+  ${
+    hasBorder
+      ? "border-b border-black"
+      : "border-b shadow-md border-transparent"
+  }`}
+      >
         {/* Left side */}
         <div className="flex max-w-[calc(100%-60px)] sm:max-w-[calc(100%-80px)] lg:max-w-[calc(100%-200px)]">
           {/* Image container */}
@@ -96,7 +138,11 @@ const Header = () => {
         </div>
 
         {/* Right side */}
-        <div className="absolute top-[-1px] bottom-[-1px] right-0 flex h-[calc(100%+2px)] items-center border border-l-black border-y-black">
+        <div
+          className={`absolute top-[-1px] bottom-[1px] right-0 flex h-[calc(100%+2px)] items-center border ${
+            hasBorder ? "border-black" : " border-l-black"
+          }`}
+        >
           {/* Menu Icon */}
           <button
             title="sideBarToggle"
@@ -125,7 +171,7 @@ const Header = () => {
             <RegisterModal />
           </Suspense>
         </div>
-      </header>
+      </motion.header>
 
       {/* Sidebar */}
       {isSidebarOpen && (

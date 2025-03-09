@@ -6,25 +6,47 @@ import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Separator } from "../ui/separator";
 import { useRouter } from "next/navigation";
+import { signIn } from "aws-amplify/auth";
+import { signInWithRedirect } from "aws-amplify/auth";
 
 export default function Login() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    console.log({ email, password });
-    // TODO: Handle login logic (API call, etc.)
+    setLoading(true);
+    try {
+      await signIn({ username: email, password });
+      router.push("/dashboard"); // Redirect after successful login
+    } catch (err: any) {
+      setError(err.message || "Failed to login");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSocialSignIn = async (provider: "Google" | "Facebook") => {
+    try {
+      await signInWithRedirect({ provider });
+    } catch (err: any) {
+      setError(err.message || `Failed to sign in with ${provider}`);
+    }
   };
 
   return (
     <div className="w-full">
       <strong className="playfair font-black text-5xl">Login</strong>
-      <div className="flex flex-row gap-4 mt-10 ">
-        <Button variant="outline" className="w-full flex items-center gap-2">
+      <div className="flex flex-row gap-4 mt-10">
+        <Button
+          variant="outline"
+          className="w-full flex items-center gap-2"
+          onClick={() => handleSocialSignIn("Facebook")}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="256"
@@ -42,7 +64,11 @@ export default function Login() {
           </svg>{" "}
           Continue with Facebook
         </Button>
-        <Button variant="outline" className="w-full flex items-center gap-2">
+        <Button
+          variant="outline"
+          className="w-full flex items-center gap-2"
+          onClick={() => handleSocialSignIn("Google")}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="48"
@@ -96,8 +122,8 @@ export default function Login() {
 
         {error && <p className="text-red-500 text-sm">{error}</p>}
 
-        <Button type="submit" className="w-full">
-          Login
+        <Button type="submit" className="w-full" disabled={loading}>
+          {loading ? "Logging in..." : "Login"}
         </Button>
       </form>
       <Separator className="my-4" />

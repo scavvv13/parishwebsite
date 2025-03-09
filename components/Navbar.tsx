@@ -17,7 +17,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-[256px] bg-white border-black border-l absolute h-screen top-0 right-0 z-10">
+    <nav className="w-[256px] bg-white border-black border-l absolute h-screen top-0 right-0 z-10 pt-[64px]">
       <div className="flex flex-col w-full">
         {navLinks.map((link) => {
           const isActive = pathname === link.href; // ✅ Compare with pathname
