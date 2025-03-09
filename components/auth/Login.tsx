@@ -23,8 +23,8 @@ export default function Login() {
     try {
       await signIn({ username: email, password });
       router.push("/dashboard"); // Redirect after successful login
-    } catch (err: any) {
-      setError(err.message || "Failed to login");
+    } catch (err) {
+      setError((err as Error).message || "Failed to login");
     } finally {
       setLoading(false);
     }
@@ -33,8 +33,8 @@ export default function Login() {
   const handleSocialSignIn = async (provider: "Google" | "Facebook") => {
     try {
       await signInWithRedirect({ provider });
-    } catch (err: any) {
-      setError(err.message || `Failed to sign in with ${provider}`);
+    } catch (err) {
+      setError((err as Error).message || `Failed to sign in with ${provider}`);
     }
   };
 
