@@ -1,14 +1,13 @@
 import Link from "next/link";
 import { useState } from "react";
 import { navLinks } from "../app/hooks/useNavItems";
-import { usePathname } from "next/navigation"; // ✅ Use usePathname instead of useRouter
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState<{ [key: string]: boolean }>(
     {}
   );
-  const pathname = usePathname(); // ✅ Get the current route
-
+  const pathname = usePathname();
   const toggleDropdown = (parentNav: string) => {
     setDropdownOpen((prev) => ({
       ...prev,
@@ -20,8 +19,7 @@ const Navbar = () => {
     <nav className="w-[256px] bg-white border-black border-l absolute h-screen top-0 right-0 z-10 pt-[64px]">
       <div className="flex flex-col w-full">
         {navLinks.map((link) => {
-          const isActive = pathname === link.href; // ✅ Compare with pathname
-
+          const isActive = pathname === link.href;
           return (
             <div key={link.href} className="w-full">
               {/* Parent Nav Item */}

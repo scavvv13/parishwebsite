@@ -61,7 +61,6 @@ const RegisterModal = () => {
 };
 
 const Header = () => {
-  const [scrolling, setScrolling] = useState(false);
   const [hasBorder, setHasBorder] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
