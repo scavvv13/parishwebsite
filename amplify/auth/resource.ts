@@ -6,9 +6,11 @@ export const auth = defineAuth({
     externalProviders: {
       google: {
         clientId: secret(
-          "720197795289-60vncgq2h9jv2pvcb217vhc3ntmeeir3.apps.googleusercontent.com"
+          process.env.NEXT_PUBLIC_GOOGLE_AUTH_CLIENT_ID as string
         ),
-        clientSecret: secret("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"),
+        clientSecret: secret(
+          process.env.NEXT_PUBLIC_GOOGLE_AUTH_CLIENT_SECRET as string
+        ),
         scopes: ["profile", "email"],
       },
 
