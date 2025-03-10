@@ -6,23 +6,29 @@ import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Separator } from "../ui/separator";
 import { useRouter } from "next/navigation";
-import { signIn } from "aws-amplify/auth";
-import { signInWithRedirect } from "aws-amplify/auth";
+import { signIn, signInWithRedirect, signOut } from "aws-amplify/auth";
+import outputs from "@/amplify_outputs.json";
+import { Amplify } from "aws-amplify";
+
+Amplify.configure(outputs);
 
 export default function Login() {
   const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // Handle form submit for sign-in
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setLoading(true);
+
     try {
       await signIn({ username: email, password });
-      router.push("/dashboard"); // Redirect after successful login
+      router.push("/post-announcement"); // Redirect after login
     } catch (err) {
       setError((err as Error).message || "Failed to login");
     } finally {
@@ -30,17 +36,21 @@ export default function Login() {
     }
   };
 
+  // Handle social sign-in
   const handleSocialSignIn = async (provider: "Google" | "Facebook") => {
+    setError("");
     try {
       await signInWithRedirect({ provider });
     } catch (err) {
-      setError((err as Error).message || `Failed to sign in with ${provider}`);
+      setError(`Failed to sign in with ${provider}: ${(err as Error).message}`);
     }
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <strong className="playfair font-black text-5xl">Login</strong>
+
+      {/* Social Login Buttons */}
       <div className="flex flex-row gap-4 mt-10">
         <Button
           variant="outline"
@@ -95,6 +105,8 @@ export default function Login() {
           Continue with Google
         </Button>
       </div>
+
+      {/* Email & Password Login Form */}
       <form onSubmit={handleSubmit} className="space-y-4 mt-3">
         <div className="space-y-2">
           <Label htmlFor="email">Email</Label>
@@ -126,6 +138,7 @@ export default function Login() {
           {loading ? "Logging in..." : "Login"}
         </Button>
       </form>
+
       <Separator className="my-4" />
       <p className="text-center text-sm">
         Don&apos;t have an account?{" "}

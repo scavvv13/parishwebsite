@@ -6,12 +6,9 @@ export const auth = defineAuth({
     externalProviders: {
       google: {
         clientId: secret(
-          process.env.NEXT_PUBLIC_GOOGLE_AUTH_CLIENT_ID as string
+          "1097591090435-v187aa2bt0t6s8mo00hpat1kfrinacbo.apps.googleusercontent.com"
         ),
-        clientSecret: secret(
-          process.env.NEXT_PUBLIC_GOOGLE_AUTH_CLIENT_SECRET as string
-        ),
-        scopes: ["profile", "email"],
+        clientSecret: secret("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"),
       },
 
       callbackUrls: ["http://localhost:3000/"],

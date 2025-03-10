@@ -2,6 +2,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { navLinks } from "../app/hooks/useNavItems";
 import { usePathname } from "next/navigation";
+import { Button } from "./ui/button";
+import { signOut } from "aws-amplify/auth";
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState<{ [key: string]: boolean }>(
@@ -86,6 +88,7 @@ const Navbar = () => {
           );
         })}
       </div>
+      <Button onClick={() => signOut()}>Sign-out</Button>
     </nav>
   );
 };

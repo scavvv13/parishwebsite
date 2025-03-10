@@ -9,11 +9,14 @@ import Modal from "./Modal";
 import Register from "./auth/Register";
 import Login from "./auth/Login";
 import { motion, useAnimation } from "framer-motion";
+import { useAuthenticator } from "@aws-amplify/ui-react";
+import { Authenticator } from "@aws-amplify/ui-react";
 
 const LoginModal = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const isLoginModalOpen = searchParams.get("loginModal") === "login";
+  const { user } = useAuthenticator();
 
   const openLoginModal = () => {
     router.push("?loginModal=login", { scroll: false });
@@ -30,8 +33,20 @@ const LoginModal = () => {
         onClick={openLoginModal}
         className="hidden h-full lg:flex flex-col items-center justify-center border-l border-l-black px-8"
       >
-        <span className="font-bold text-md leading-none">Have an Account?</span>
-        <span className="font-normal text-sm leading-none">Login here</span>
+        {user ? (
+          <>
+            <span className="font-bold text-md leading-none">
+              {user.userId}
+            </span>
+          </>
+        ) : (
+          <>
+            <span className="font-bold text-md leading-none">
+              Have an Account?
+            </span>
+            <span className="font-normal text-sm leading-none">Login here</span>
+          </>
+        )}
       </button>
 
       {/* Modal */}
@@ -91,7 +106,7 @@ const Header = () => {
   }, [controls]);
 
   return (
-    <>
+    <Authenticator.Provider>
       <motion.header
         animate={controls}
         initial={{
@@ -178,7 +193,7 @@ const Header = () => {
           <Navbar />
         </div>
       )}
-    </>
+    </Authenticator.Provider>
   );
 };
 
