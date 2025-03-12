@@ -8,9 +8,6 @@ import { Separator } from "../ui/separator";
 import { useRouter } from "next/navigation";
 import { signIn, signInWithRedirect, signOut } from "aws-amplify/auth";
 import outputs from "@/amplify_outputs.json";
-import { Amplify } from "aws-amplify";
-
-Amplify.configure(outputs);
 
 export default function Login() {
   const router = useRouter();

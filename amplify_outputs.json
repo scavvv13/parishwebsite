@@ -17,6 +17,14 @@
       "require_symbols": true,
       "require_uppercase": true
     },
+    "oauth": {
+      "identity_providers": ["Google"],
+      "domain": "parish-website.auth.ap-southeast-1.amazoncognito.com",
+      "scopes": ["openid", "email", "profile"],
+      "redirect_sign_in_uri": ["http://localhost:3000"],
+      "redirect_sign_out_uri": ["http://localhost:3000"],
+      "response_type": "code"
+    },
     "unauthenticated_identities_enabled": true
   },
 

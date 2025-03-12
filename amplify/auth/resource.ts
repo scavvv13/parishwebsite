@@ -11,8 +11,15 @@ export const auth = defineAuth({
         clientSecret: secret("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"),
       },
 
-      callbackUrls: ["http://localhost:3000/"],
-      logoutUrls: ["http://localhost:3000"],
+      callbackUrls: [
+        "http://localhost:3000/",
+
+        "https://parish-website.auth.ap-southeast-1.amazoncognito.com",
+      ],
+      logoutUrls: [
+        "http://localhost:3000",
+        "https://parish-website.auth.ap-southeast-1.amazoncognito.com",
+      ],
     },
   },
 });

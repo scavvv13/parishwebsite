@@ -3,7 +3,7 @@ import QuickLinks from "@/components/QuickLinks"; // Import only this as a clien
 
 export default function Hero() {
   return (
-    <div className="flex flex-col items-center text-center pt-32 pb-40 px-4 border  border-x-black">
+    <div className="flex flex-col items-center text-center pt-20 pb-40 px-4 border  border-x-black">
       <div className="mb-8 flex gap-6">
         <Image
           src="/dio.png"
