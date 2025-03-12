@@ -6,7 +6,6 @@ import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Separator } from "../ui/separator";
 import { useRouter } from "next/navigation";
-<<<<<<< HEAD
 import { signIn, signInWithRedirect, signOut } from "aws-amplify/auth";
 import outputs from "@/amplify_outputs.json";
 import { Amplify } from "aws-amplify";
