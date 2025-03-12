@@ -9,17 +9,14 @@ import Modal from "./Modal";
 import Register from "./auth/Register";
 import Login from "./auth/Login";
 import { motion, useAnimation } from "framer-motion";
-
+import { useAuthenticator } from "@aws-amplify/ui-react";
 import { Authenticator } from "@aws-amplify/ui-react";
 
-import useAuthStore from "@/store/authStore";
-
 const LoginModal = () => {
-  const fetchUser = useAuthStore((state) => state.fetchUser);
-  const user = useAuthStore((state) => state.user);
   const searchParams = useSearchParams();
   const router = useRouter();
   const isLoginModalOpen = searchParams.get("loginModal") === "login";
+  const { user } = useAuthenticator();
 
   const openLoginModal = () => {
     router.push("?loginModal=login", { scroll: false });
@@ -29,9 +26,6 @@ const LoginModal = () => {
     router.push("/", { scroll: false });
   };
 
-  useEffect(() => {
-    fetchUser(); // Load user on mount
-  }, [fetchUser]);
   return (
     <>
       {/* Login Section */}
@@ -41,7 +35,9 @@ const LoginModal = () => {
       >
         {user ? (
           <>
-            <span className="font-bold text-md leading-none">{user.email}</span>
+            <span className="font-bold text-md leading-none">
+              {user.userId}
+            </span>
           </>
         ) : (
           <>
@@ -118,12 +114,12 @@ const Header = () => {
           borderBottom: "1px solid ",
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className={fixed top-0 left-0 right-0 flex items-center justify-between px-2 py-2 lg:px-3 lg:py-2 z-50 
+        className={`fixed top-0 left-0 right-0 flex items-center justify-between px-2 py-2 lg:px-3 lg:py-2 z-50 
   ${
     hasBorder
       ? "border-b border-black"
       : "border-b shadow-md border-transparent"
-  }}
+  }`}
       >
         {/* Left side */}
         <div className="flex max-w-[calc(100%-60px)] sm:max-w-[calc(100%-80px)] lg:max-w-[calc(100%-200px)]">
@@ -157,9 +153,9 @@ const Header = () => {
 
         {/* Right side */}
         <div
-          className={absolute top-[-1px] bottom-[1px] right-0 flex h-[calc(100%+2px)] items-center border ${
+          className={`absolute top-[-1px] bottom-[1px] right-0 flex h-[calc(100%+2px)] items-center border ${
             hasBorder ? "border-black" : " border-l-black"
-          }}
+          }`}
         >
           {/* Menu Icon */}
           <button

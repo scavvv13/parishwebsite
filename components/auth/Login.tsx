@@ -9,10 +9,16 @@ import { useRouter } from "next/navigation";
 <<<<<<< HEAD
 import { signIn, signInWithRedirect, signOut } from "aws-amplify/auth";
 import outputs from "@/amplify_outputs.json";
+<<<<<<< HEAD
 =======
 import { signIn } from "aws-amplify/auth";
 import { signInWithRedirect } from "aws-amplify/auth";
 >>>>>>> parent of d9fecc1 (last working set)
+=======
+import { Amplify } from "aws-amplify";
+
+Amplify.configure(outputs);
+>>>>>>> parent of abd6162 (made header ssr)
 
 export default function Login() {
   const router = useRouter();

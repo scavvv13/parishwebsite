@@ -13,7 +13,7 @@ export default function TodoList() {
   };
 
   return (
-    <div className="pt-22">
+    <div>
       <button onClick={createTodo}>Add new todo</button>
     </div>
   );

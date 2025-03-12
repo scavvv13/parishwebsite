@@ -14,15 +14,8 @@ export const auth = defineAuth({
         scopes: ["profile", "email"],
       },
 
-      callbackUrls: [
-        "http://localhost:3000/",
-
-        "https://parish-website.auth.ap-southeast-1.amazoncognito.com",
-      ],
-      logoutUrls: [
-        "http://localhost:3000",
-        "https://parish-website.auth.ap-southeast-1.amazoncognito.com",
-      ],
+      callbackUrls: ["http://localhost:3000/"],
+      logoutUrls: ["http://localhost:3000"],
     },
   },
 });
