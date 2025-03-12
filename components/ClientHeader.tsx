@@ -1,5 +1,6 @@
 "use client";
 
+import { Authenticator } from "@aws-amplify/ui-react";
 import { useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Modal from "./Modal";
@@ -9,21 +10,20 @@ import useAuthStore from "@/store/authStore";
 import Navbar from "./Navbar";
 
 const LoginModal = () => {
-  const fetchUser = useAuthStore((state) => state.fetchUser);
   const user = useAuthStore((state) => state.user);
   const searchParams = useSearchParams();
   const router = useRouter();
   const isLoginModalOpen = searchParams.get("loginModal") === "login";
 
   return (
-    <>
+    <Authenticator>
       <button onClick={() => router.push("?loginModal=login")}>
         {user ? <span>{user.email}</span> : <span>Login here</span>}
       </button>
       <Modal isOpen={isLoginModalOpen} onClose={() => router.push("/")}>
         <Login />
       </Modal>
-    </>
+    </Authenticator>
   );
 };
 

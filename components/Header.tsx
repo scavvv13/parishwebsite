@@ -1,13 +1,12 @@
 import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Authenticator } from "@aws-amplify/ui-react";
 import { motion } from "framer-motion";
-import ClientHeader from "./ClientHeader"; // Import client components wrapped in Suspense
+import ClientHeader from "@/components/ClientHeader"; // Import client components wrapped in Suspense
 
 const Header = () => {
   return (
-    <Authenticator.Provider>
+    <>
       <motion.header
         initial={{ backdropFilter: "blur(0px)", borderBottom: "1px solid" }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -29,7 +28,7 @@ const Header = () => {
           <ClientHeader />
         </Suspense>
       </motion.header>
-    </Authenticator.Provider>
+    </>
   );
 };
 
