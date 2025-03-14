@@ -4,103 +4,52 @@ import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import Navbar from "./Navbar";
 import Link from "next/link";
-import { useSearchParams, useRouter } from "next/navigation";
 import Modal from "./Modal";
 import Register from "./auth/Register";
 import Login from "./auth/Login";
 import { motion, useAnimation } from "framer-motion";
-import { useAuthenticator } from "@aws-amplify/ui-react";
 import { Authenticator } from "@aws-amplify/ui-react";
-
-const LoginModal = () => {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const isLoginModalOpen = searchParams.get("loginModal") === "login";
-  const { user } = useAuthenticator();
-
-  const openLoginModal = () => {
-    router.push("?loginModal=login", { scroll: false });
-  };
-
-  const closeLoginModal = () => {
-    router.push("/", { scroll: false });
-  };
-
-  return (
-    <>
-      {/* Login Section */}
-      <button
-        onClick={openLoginModal}
-        className="hidden h-full lg:flex flex-col items-center justify-center border-l border-l-black px-8"
-      >
-        {user ? (
-          <>
-            <span className="font-bold text-md leading-none">
-              {user.userId}
-            </span>
-          </>
-        ) : (
-          <>
-            <span className="font-bold text-md leading-none">
-              Have an Account?
-            </span>
-            <span className="font-normal text-sm leading-none">Login here</span>
-          </>
-        )}
-      </button>
-
-      {/* Modal */}
-      <Modal isOpen={isLoginModalOpen} onClose={closeLoginModal}>
-        <Login />
-      </Modal>
-    </>
-  );
-};
-
-const RegisterModal = () => {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const isRegisterModalOpen = searchParams.get("registerModal") === "register";
-
-  const closeRegisterModal = () => {
-    router.push("/", { scroll: false });
-  };
-
-  return (
-    <>
-      <Modal isOpen={isRegisterModalOpen} onClose={closeRegisterModal}>
-        <Register />
-      </Modal>
-    </>
-  );
-};
+import { getCurrentUser, fetchAuthSession } from "aws-amplify/auth";
 
 const Header = () => {
   const [hasBorder, setHasBorder] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
+  const [givenName, setGivenName] = useState("");
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const controls = useAnimation();
 
-  ///[header useEffects]
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const session = await fetchAuthSession();
+        await getCurrentUser();
+        setGivenName(String(session.tokens?.idToken?.payload.given_name) || "");
+      } catch (error) {
+        console.error("Error fetching user session:", error);
+      }
+    };
+    fetchUser();
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
-        setHasBorder(false); // Hide border when scrolling
+        setHasBorder(false);
         controls.start({
           backdropFilter: "blur(10px)",
-          backgroundColor: "rgba(255, 255, 255, 0.5)", // Semi-transparent white
-          borderBottom: "1px solid transparent", // Hide border
+          backgroundColor: "rgba(255, 255, 255, 0.5)",
+          borderBottom: "1px solid transparent",
         });
       } else {
-        setHasBorder(true); // Show border at top
+        setHasBorder(true);
         controls.start({
           backdropFilter: "blur(0px)",
-          backgroundColor: "rgba(255, 255, 255, 1)", // Solid white
-          borderBottom: "1px solid black", // Show border
+          backgroundColor: "rgba(255, 255, 255, 1)",
+          borderBottom: "1px solid black",
         });
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [controls]);
@@ -109,55 +58,45 @@ const Header = () => {
     <Authenticator.Provider>
       <motion.header
         animate={controls}
-        initial={{
-          backdropFilter: "blur(0px)",
-          borderBottom: "1px solid ",
-        }}
+        initial={{ backdropFilter: "blur(0px)", borderBottom: "1px solid " }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className={`fixed top-0 left-0 right-0 flex items-center justify-between px-2 py-2 lg:px-3 lg:py-2 z-50 
-  ${
-    hasBorder
-      ? "border-b border-black"
-      : "border-b shadow-md border-transparent"
-  }`}
+        className={`fixed top-0 left-0 right-0 flex items-center justify-between px-2 py-2 lg:px-3 lg:py-0 z-50 
+          ${
+            hasBorder
+              ? "border-b border-black"
+              : "border-b shadow-md border-transparent"
+          }`}
       >
-        {/* Left side */}
         <div className="flex max-w-[calc(100%-60px)] sm:max-w-[calc(100%-80px)] lg:max-w-[calc(100%-200px)]">
-          {/* Image container */}
           <div className="flex items-center">
             <Link href="/">
               <Image
                 src="/madonnalogo.png"
                 width={50}
                 height={50}
-                alt="madonna del divino amore logo"
+                alt="Logo"
                 className="w-12 lg:w-12"
               />
             </Link>
-            {/* Vertical Line */}
             <div className="absolute sm:left-[66px] left-[70px] top-0 bottom-0 h-full w-[1px] bg-black" />
           </div>
-
-          {/* Parish name and diocese */}
           <div className="flex items-center">
             <div className="flex flex-col ml-4 sm:ml-5">
-              <strong className="playfair font-black text-[12px] text-start lg:text-2xl leading-none lg:leading-none">
+              <strong className="playfair font-black text-[12px] lg:text-2xl leading-none">
                 Madonna Del Divino Amore Parish
               </strong>
-              <span className="flex instrument text-[9px] text-center lg:text-start lg:text-lg leading-tight lg:leading-none">
+              <span className="instrument text-[9px] lg:text-lg leading-tight">
                 Diocese of Parañaque
               </span>
             </div>
           </div>
         </div>
 
-        {/* Right side */}
         <div
           className={`absolute top-[-1px] bottom-[1px] right-0 flex h-[calc(100%+2px)] items-center border ${
             hasBorder ? "border-black" : " border-l-black"
           }`}
         >
-          {/* Menu Icon */}
           <button
             title="sideBarToggle"
             className="px-3 sm:px-4 h-full"
@@ -178,16 +117,37 @@ const Header = () => {
               />
             </svg>
           </button>
-
-          {/* Login Modal (wrapped in Suspense) */}
-          <Suspense fallback={null}>
-            <LoginModal />
-            <RegisterModal />
-          </Suspense>
+          <button
+            onClick={() => setIsLoginModalOpen(true)}
+            className="hidden h-full lg:flex flex-col items-center justify-center border-l border-l-black px-8"
+          >
+            {givenName ? (
+              <span className="font-bold text-md">{givenName}</span>
+            ) : (
+              <>
+                <span className="font-bold text-md">Have an Account?</span>
+                <span className="font-normal text-sm">Login here</span>
+              </>
+            )}
+          </button>
         </div>
       </motion.header>
 
-      {/* Sidebar */}
+      <Suspense fallback={null}>
+        <Modal
+          isOpen={isLoginModalOpen}
+          onClose={() => setIsLoginModalOpen(false)}
+        >
+          <Login />
+        </Modal>
+        <Modal
+          isOpen={isRegisterModalOpen}
+          onClose={() => setIsRegisterModalOpen(false)}
+        >
+          <Register />
+        </Modal>
+      </Suspense>
+
       {isSidebarOpen && (
         <div className="relative">
           <Navbar />

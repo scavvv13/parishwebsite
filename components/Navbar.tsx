@@ -2,12 +2,14 @@ import Link from "next/link";
 import { useState } from "react";
 import { navLinks } from "../app/hooks/useNavItems";
 import { usePathname } from "next/navigation";
+import { signOut } from "@aws-amplify/auth";
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState<{ [key: string]: boolean }>(
     {}
   );
   const pathname = usePathname();
+
   const toggleDropdown = (parentNav: string) => {
     setDropdownOpen((prev) => ({
       ...prev,
@@ -15,8 +17,17 @@ const Navbar = () => {
     }));
   };
 
+  const handleLogout = async () => {
+    try {
+      await signOut();
+      window.location.href = "/"; // Redirect to home or login page after logout
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
+
   return (
-    <nav className="w-[256px] bg-white border-black border-l absolute h-screen top-0 right-0 z-10 pt-[64px]">
+    <nav className="w-[256px] bg-white border-black border-l absolute h-screen top-0 right-0 z-10 pt-[64px] flex flex-col justify-between">
       <div className="flex flex-col w-full">
         {navLinks.map((link) => {
           const isActive = pathname === link.href;
@@ -86,6 +97,14 @@ const Navbar = () => {
           );
         })}
       </div>
+
+      {/* Logout Button */}
+      <button
+        onClick={handleLogout}
+        className="w-full text-left px-4 py-3 text-red-600 hover:bg-red-50 border-t border-gray-200 font-medium"
+      >
+        Logout
+      </button>
     </nav>
   );
 };
