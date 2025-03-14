@@ -8,7 +8,7 @@ import Modal from "./Modal";
 import Register from "./auth/Register";
 import Login from "./auth/Login";
 import { motion, useAnimation } from "framer-motion";
-import { Authenticator } from "@aws-amplify/ui-react";
+
 import { getCurrentUser, fetchAuthSession } from "aws-amplify/auth";
 
 const Header = () => {
@@ -24,7 +24,12 @@ const Header = () => {
       try {
         const session = await fetchAuthSession();
         await getCurrentUser();
-        setGivenName(String(session.tokens?.idToken?.payload.given_name) || "");
+        setGivenName(
+          String(session.tokens?.idToken?.payload.given_name).replace(
+            /,$/,
+            ""
+          ) || ""
+        );
       } catch (error) {
         console.error("Error fetching user session:", error);
       }
@@ -55,7 +60,7 @@ const Header = () => {
   }, [controls]);
 
   return (
-    <Authenticator.Provider>
+    <>
       <motion.header
         animate={controls}
         initial={{ backdropFilter: "blur(0px)", borderBottom: "1px solid " }}
@@ -153,7 +158,7 @@ const Header = () => {
           <Navbar />
         </div>
       )}
-    </Authenticator.Provider>
+    </>
   );
 };
 
