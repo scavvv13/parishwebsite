@@ -12,8 +12,16 @@
       "identity_providers": ["Google"],
       "domain": "parish-website.auth.ap-southeast-1.amazoncognito.com",
       "scopes": ["profile", "email", "openid"],
-      "redirect_sign_in_uri": ["http://localhost:3000"],
-      "redirect_sign_out_uri": ["http://localhost:3000"],
+      "redirect_sign_in_uri": [
+        "http://localhost:3000",
+        "https://madonnadeldivinoamoreparish-git-development-scaves-projects.vercel.app",
+        "https://madonnadeldivinoamoreparish.vercel.app"
+      ],
+      "redirect_sign_out_uri": [
+        "http://localhost:3000",
+        "https://madonnadeldivinoamoreparish-git-development-scaves-projects.vercel.app",
+        "https://madonnadeldivinoamoreparish.vercel.app"
+      ],
       "responseType": "code"
     },
     "groups": [],

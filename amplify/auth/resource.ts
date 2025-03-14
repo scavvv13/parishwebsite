@@ -18,8 +18,14 @@ export const auth = defineAuth({
         },
       },
 
-      callbackUrls: ["http://localhost:3000/"],
-      logoutUrls: ["http://localhost:3000"],
+      callbackUrls: [
+        "http://localhost:3000",
+        "https://madonnadeldivinoamoreparish-git-development-scaves-projects.vercel.app",
+      ],
+      logoutUrls: [
+        "http://localhost:3000",
+        "https://madonnadeldivinoamoreparish-git-development-scaves-projects.vercel.app",
+      ],
     },
   },
 });
