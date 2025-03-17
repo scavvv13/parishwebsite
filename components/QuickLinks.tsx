@@ -16,8 +16,8 @@ export default function QuickLinks() {
       {quickLinks.map((btn, index) => (
         <Button
           key={index}
-          variant="outline"
-          className="flex items-center gap-2"
+          variant="brutalist"
+          className="flex items-center gap-2 px-10"
           onClick={() => navigateTo(btn.href)}
         >
           <Image src={btn.iconPath} alt={btn.label} width={24} height={24} />

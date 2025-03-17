@@ -8,7 +8,6 @@ import Modal from "./Modal";
 import Register from "./auth/Register";
 import Login from "./auth/Login";
 import { motion, useAnimation } from "framer-motion";
-
 import { getCurrentUser, fetchAuthSession } from "aws-amplify/auth";
 
 const Header = () => {
@@ -21,8 +20,8 @@ const Header = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
+      const session = await fetchAuthSession();
       try {
-        const session = await fetchAuthSession();
         await getCurrentUser();
         setGivenName(
           String(session.tokens?.idToken?.payload.given_name).replace(
@@ -127,7 +126,14 @@ const Header = () => {
             className="hidden h-full lg:flex flex-col items-center justify-center border-l border-l-black px-8"
           >
             {givenName ? (
-              <span className="font-bold text-md">{givenName}</span>
+              <>
+                <span className="font-bold text-md leading-none">
+                  {givenName}
+                </span>
+                <span className="font-normal text-sm leading-none text-gray-800">
+                  admin
+                </span>
+              </>
             ) : (
               <>
                 <span className="font-bold text-md">Have an Account?</span>

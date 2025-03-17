@@ -5,6 +5,7 @@ import { generateClient } from "aws-amplify/data";
 import type { Schema } from "../amplify/data/resource";
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
+import Crispin from "@/components/Crispin";
 
 Amplify.configure(outputs);
 
@@ -23,6 +24,7 @@ export default async function Home() {
 
   return (
     <>
+      <Crispin />
       <Hero />
       <Marquee announcements={announcements} />
       <Schedule />
