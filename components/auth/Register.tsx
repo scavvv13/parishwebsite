@@ -7,7 +7,15 @@ import { Label } from "../ui/label";
 import { Separator } from "../ui/separator";
 import { useRouter } from "next/navigation";
 
-export default function Register() {
+interface RegisterProps {
+  setIsRegisterModalOpen: (value: boolean) => void;
+  setIsLoginModalOpen: (value: boolean) => void;
+}
+
+export default function Register({
+  setIsRegisterModalOpen,
+  setIsLoginModalOpen,
+}: RegisterProps) {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -119,11 +127,14 @@ export default function Register() {
       </form>
 
       <Separator className="my-4" />
-      <p className="text-center text-sm">
+      <p className="text-center text-sm dark:text-gray-300">
         Already have an account?{" "}
         <button
-          onClick={() => router.push("?loginModal=login", { scroll: false })}
-          className="text-black font-bold"
+          onClick={() => {
+            setIsLoginModalOpen(true);
+            setIsRegisterModalOpen(false);
+          }}
+          className="text-black font-bold dark:text-white"
         >
           Login
         </button>

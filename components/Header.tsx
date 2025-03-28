@@ -147,13 +147,19 @@ const Header = () => {
           isOpen={isLoginModalOpen}
           onClose={() => setIsLoginModalOpen(false)}
         >
-          <Login />
+          <Login
+            setIsLoginModalOpen={setIsLoginModalOpen}
+            setIsRegisterModalOpen={setIsRegisterModalOpen}
+          />
         </Modal>
         <Modal
           isOpen={isRegisterModalOpen}
           onClose={() => setIsRegisterModalOpen(false)}
         >
-          <Register />
+          <Register
+            setIsLoginModalOpen={setIsLoginModalOpen}
+            setIsRegisterModalOpen={setIsRegisterModalOpen}
+          />
         </Modal>
       </Suspense>
 

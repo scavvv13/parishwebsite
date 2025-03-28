@@ -8,7 +8,15 @@ import { Separator } from "../ui/separator";
 import { useRouter } from "next/navigation";
 import { signIn, signInWithRedirect } from "aws-amplify/auth";
 
-export default function Login() {
+interface LoginProps {
+  setIsLoginModalOpen: (value: boolean) => void;
+  setIsRegisterModalOpen: (value: boolean) => void;
+}
+
+export default function Login({
+  setIsLoginModalOpen,
+  setIsRegisterModalOpen,
+}: LoginProps) {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -126,13 +134,14 @@ export default function Login() {
         </Button>
       </form>
       <Separator className="my-4" />
-      <p className="text-center text-sm">
+      <p className="text-center dark:text-gray-300 text-sm">
         Don&apos;t have an account?{" "}
         <button
-          onClick={() =>
-            router.push("?registerModal=register", { scroll: false })
-          }
-          className="text-black font-bold"
+          onClick={() => {
+            setIsLoginModalOpen(false);
+            setIsRegisterModalOpen(true);
+          }}
+          className="text-black dark:text-white font-bold"
         >
           Register
         </button>
