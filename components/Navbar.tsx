@@ -32,7 +32,7 @@ const Navbar = ({ isOpen, setIsOpen }: NavbarProps) => {
   return (
     <Drawer open={isOpen} onOpenChange={setIsOpen}>
       <DrawerTrigger asChild></DrawerTrigger>
-      <DrawerContent className="bg-white border-l border-black">
+      <DrawerContent className=" border-l border-black">
         <DrawerHeader>
           <DrawerTitle className="text-3xl font-extrabold">Menu</DrawerTitle>
         </DrawerHeader>
@@ -43,7 +43,7 @@ const Navbar = ({ isOpen, setIsOpen }: NavbarProps) => {
             <Link
               key={link.href}
               href={link.href}
-              className="text-7xl font-bold text-gray-300 hover:text-black transition-all"
+              className="text-7xl font-bold dark:text-gray-800 text-gray-300 hover:text-black transition-all dark:hover:text-white"
             >
               {link.text}
             </Link>

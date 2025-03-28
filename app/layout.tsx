@@ -10,6 +10,7 @@ import "./globals.css";
 import Header from "../components/Header";
 import AmplifyProvider from "@/components/AmplifyProvider";
 import { ThemeProvider } from "./providers/ThemeProvider";
+import { UserProvider } from "./providers/UserProvider";
 
 const pinyonScript = Pinyon_Script({
   weight: "400",
@@ -122,15 +123,17 @@ export default function RootLayout({
       </head>
       <body>
         <AmplifyProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Header />
-            <div className="pt-[60px]">{children}</div>
-          </ThemeProvider>
+          <UserProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Header />
+              <div className="pt-[60px]">{children}</div>
+            </ThemeProvider>
+          </UserProvider>
         </AmplifyProvider>
       </body>
     </html>

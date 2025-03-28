@@ -4,37 +4,20 @@ import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
-import { getCurrentUser, fetchAuthSession } from "aws-amplify/auth";
 import Navbar from "./Navbar";
 import Modal from "./Modal";
 import Register from "./auth/Register";
 import Login from "./auth/Login";
 import ThemeToggle from "./ui/themeToggle";
+import { useUser } from "../app/providers/UserProvider";
 
 const Header = () => {
+  const controls = useAnimation();
+  const { user, isLoading } = useUser();
   const [hasBorder, setHasBorder] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [givenName, setGivenName] = useState("");
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
-  const controls = useAnimation();
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const session = await fetchAuthSession();
-        await getCurrentUser();
-        setGivenName(
-          `${session.tokens?.idToken?.payload.given_name || ""} ${
-            session.tokens?.idToken?.payload.family_name || ""
-          }`.trim()
-        );
-      } catch (error) {
-        console.error("Error fetching user session:", error);
-      }
-    };
-    fetchUser();
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,6 +41,8 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [controls]);
+
+  if (isLoading) return <p>Loading...</p>;
 
   return (
     <>
@@ -85,16 +70,16 @@ const Header = () => {
               className="w-12 lg:w-14 rounded-full transition-transform hover:scale-105"
             />
             <div className="hidden sm:block">
-              <div className="flex flex-col leading-none space-y-0">
+              <div className="flex flex-col leading-none ">
                 <strong
                   className="playfair font-black text-sm lg:text-2xl 
-                  text-gray-900 dark:text-white tracking-tight leading-none"
+                  text-gray-900 dark:text-white leading-none"
                 >
                   Madonna Del Divino Amore Parish
                 </strong>
                 <span
                   className="instrument text-xs lg:text-lg 
-                  text-gray-600 dark:text-gray-300 tracking-wide leading-none"
+                  text-gray-600 dark:text-gray-300 leading-none"
                 >
                   Diocese of Parañaque
                 </span>
@@ -134,10 +119,10 @@ const Header = () => {
               p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 
               transition-colors duration-200"
           >
-            {givenName ? (
+            {user ? (
               <>
-                <span className="font-bold text-sm text-gray-900 dark:text-white">
-                  {givenName}
+                <span className="font-bold text-md text-gray-900 dark:text-white leading-none">
+                  {user.givenName} {user.familyName}
                 </span>
                 <span className="font-normal text-xs text-gray-600 dark:text-gray-400">
                   admin
@@ -145,7 +130,7 @@ const Header = () => {
               </>
             ) : (
               <>
-                <span className="font-bold text-sm text-gray-900 dark:text-white">
+                <span className="font-bold text-sm text-gray-900 dark:text-white leading-none">
                   Have an Account?
                 </span>
                 <span className="font-normal text-xs text-gray-600 dark:text-gray-300">
