@@ -9,6 +9,7 @@ import {
 import "./globals.css";
 import Header from "../components/Header";
 import AmplifyProvider from "@/components/AmplifyProvider";
+import { ThemeProvider } from "./providers/ThemeProvider";
 
 const pinyonScript = Pinyon_Script({
   weight: "400",
@@ -77,6 +78,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${bodoniModa.variable} ${openSans.variable} ${pinyonScript.variable} ${playfairDisplay.variable} ${instrumentSerif.variable}`}
+      suppressHydrationWarning
     >
       <head>
         <link rel="icon" href="/madonnalogo.png" />
@@ -120,8 +122,15 @@ export default function RootLayout({
       </head>
       <body>
         <AmplifyProvider>
-          <Header />
-          <div className="pt-[60px]">{children}</div>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
+            <div className="pt-[60px]">{children}</div>
+          </ThemeProvider>
         </AmplifyProvider>
       </body>
     </html>

@@ -3,7 +3,7 @@ import QuickLinks from "@/components/QuickLinks"; // Import only this as a clien
 
 export default function Hero() {
   return (
-    <div className="flex flex-row  lg:px-10 border ">
+    <div className="flex flex-row  lg:px-10  ">
       <div className="hidden lg:flex flex-row lg:p-8 h-[90vh]">
         <Image
           src="/event.jpg"
@@ -32,13 +32,13 @@ export default function Hero() {
             className="size-24"
           />
         </div>
-        <h3 className="text-3xl instrument text-[#412121]">
+        <h3 className="text-3xl instrument text-[#412121] dark:text-gray-300">
           Roman Catholic Diocese of Paranaque
         </h3>
         <strong className="text-6xl font-extrabold mt-2 playfair">
           MADONNA DEL DIVINO AMORE PARISH
         </strong>
-        <p className="mt-2 playfair text-xl text-gray-700 mb-12">
+        <p className="mt-2 playfair text-xl text-gray-700 dark:text-gray-400 mb-12">
           Ayala Southvale Drive, Las Pinas City
         </p>
 

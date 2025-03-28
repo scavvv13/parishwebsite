@@ -11,7 +11,7 @@ export default function Marquee({
   const repeatedAnnouncements = [...announcements, ...announcements]; // Duplicate for smooth looping
 
   return (
-    <div className="overflow-hidden border-y border-black bg-gray-100 w-full">
+    <div className="overflow-hidden border-y border-black bg-gray-100 dark:bg-black w-full">
       <motion.div
         className="flex whitespace-nowrap space-x-12 py-3 text-2xl font-bold"
         animate={{ x: ["0%", "-100%"] }}
