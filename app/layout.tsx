@@ -121,7 +121,7 @@ export default function RootLayout({
       <body>
         <AmplifyProvider>
           <Header />
-          <div className="pt-18">{children}</div>
+          <div className="pt-[60px]">{children}</div>
         </AmplifyProvider>
       </body>
     </html>

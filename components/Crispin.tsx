@@ -13,7 +13,7 @@ const Crispin = () => {
     <Draggable nodeRef={nodeRef}>
       <div ref={nodeRef} className="fixed bottom-10 right-10 cursor-grab z-50">
         {isOpen ? (
-          <Card className="w-64 p-4 shadow-lg rounded-lg bg-white">
+          <Card className="w-64 p-1 shadow-lg rounded-lg flex flex-row">
             <button
               onClick={() => setIsOpen(false)}
               className="absolute top-1 right-1"
@@ -31,22 +31,26 @@ const Crispin = () => {
                 />
               </svg>
             </button>
-            <p>Ask Crispin for assistance!</p>
+            <Image
+              src={"/chatbot.png"}
+              alt="Crispin"
+              width={50}
+              height={50}
+              className="pointer-events-none"
+            />
+            <div className="ml-5 leading-none content-center">
+              <p className=" place-self-center font-bold text-md">
+                Chat with Crispin
+              </p>
+              <span className="text-sm">Our church AI</span>
+            </div>
           </Card>
         ) : (
           <button
             onClick={() => setIsOpen(true)}
             className=" rounded-full"
             title="Open Crispin"
-          >
-            <Image
-              src={"/chatbot.png"}
-              alt="Crispin"
-              width={100}
-              height={100}
-              className=" cursor-grab"
-            />
-          </button>
+          ></button>
         )}
       </div>
     </Draggable>

@@ -1,111 +1,72 @@
+"use client";
+
 import Link from "next/link";
-import { useState } from "react";
-import { navLinks } from "../app/hooks/useNavItems";
-import { usePathname } from "next/navigation";
 import { signOut } from "@aws-amplify/auth";
+import {
+  Drawer,
+  DrawerTrigger,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerClose,
+} from "@/components/ui/drawer";
+import { Button } from "@/components/ui/button";
+import { LogOut } from "lucide-react";
+import { navLinks } from "../app/hooks/useNavItems";
 
-const Navbar = () => {
-  const [dropdownOpen, setDropdownOpen] = useState<{ [key: string]: boolean }>(
-    {}
-  );
-  const pathname = usePathname();
+interface NavbarProps {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+}
 
-  const toggleDropdown = (parentNav: string) => {
-    setDropdownOpen((prev) => ({
-      ...prev,
-      [parentNav]: !prev[parentNav],
-    }));
-  };
-
+const Navbar = ({ isOpen, setIsOpen }: NavbarProps) => {
   const handleLogout = async () => {
     try {
       await signOut();
-      window.location.href = "/"; // Redirect to home or login page after logout
+      window.location.href = "/";
     } catch (error) {
       console.error("Logout failed:", error);
     }
   };
 
   return (
-    <nav className="w-[256px] bg-white border-black border-l absolute h-screen top-0 right-0 z-10 pt-[64px] flex flex-col justify-between">
-      <div className="flex flex-col w-full">
-        {navLinks.map((link) => {
-          const isActive = pathname === link.href;
-          return (
-            <div key={link.href} className="w-full">
-              {/* Parent Nav Item */}
-              <div
-                className={`flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-gray-50 ${
-                  isActive ? "bg-amber-500" : ""
-                }`}
-              >
-                <Link
-                  href={link.href}
-                  className="text-gray-800 font-medium text-lg hover:text-gray-600 flex-grow"
-                >
-                  {link.text}
-                </Link>
+    <Drawer open={isOpen} onOpenChange={setIsOpen}>
+      <DrawerTrigger asChild></DrawerTrigger>
+      <DrawerContent className="bg-white border-l border-black">
+        <DrawerHeader>
+          <DrawerTitle className="text-3xl font-extrabold">Menu</DrawerTitle>
+        </DrawerHeader>
 
-                {/* Dropdown Arrow */}
-                {link.subNav && (
-                  <button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      toggleDropdown(link.text);
-                    }}
-                    className="p-1 hover:bg-gray-100 rounded-full"
-                    title={`Toggle ${link.text} dropdown`}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      className={`size-5 transition-transform duration-200 ${
-                        dropdownOpen[link.text] ? "rotate-180" : ""
-                      }`}
-                    >
-                      <path d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </button>
-                )}
-              </div>
+        {/* Nav Links - FLEX WRAP FIX */}
+        <div className="p-10 flex flex-wrap justify-center gap-x-36 gap-y-12">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-7xl font-bold text-gray-300 hover:text-black transition-all"
+            >
+              {link.text}
+            </Link>
+          ))}
+        </div>
 
-              {/* Dropdown Menu */}
-              {link.subNav && (
-                <div
-                  className={`overflow-hidden transition-all duration-200 ease-in-out ${
-                    dropdownOpen[link.text] ? "max-h-96" : "max-h-0"
-                  }`}
-                >
-                  <div className="bg-gray-50 border-l-4 border-gray-200">
-                    {link.subNav.map((subLink) => (
-                      <Link
-                        key={subLink.href}
-                        href={subLink.href}
-                        className={`block px-8 py-2 text-gray-600 hover:bg-gray-100 hover:text-gray-800 ${
-                          pathname === subLink.href ? "bg-amber-400" : ""
-                        }`}
-                      >
-                        {subLink.text}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Logout Button */}
-      <button
-        onClick={handleLogout}
-        className="w-full text-left px-4 py-3 text-red-600 hover:bg-red-50 border-t border-gray-200 font-medium"
-      >
-        Logout
-      </button>
-    </nav>
+        {/* Logout & Close Buttons */}
+        <div className="p-4 border-t">
+          <Button
+            variant="destructive"
+            className="w-full flex items-center justify-center gap-2 text-2xl py-4"
+            onClick={handleLogout}
+          >
+            <LogOut className="w-7 h-7" /> Logout
+          </Button>
+        </div>
+        <DrawerClose asChild>
+          <Button variant="outline" className="w-full mt-2 text-2xl py-4">
+            Close
+          </Button>
+        </DrawerClose>
+      </DrawerContent>
+    </Drawer>
   );
 };
 

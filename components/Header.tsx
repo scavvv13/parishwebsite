@@ -2,13 +2,15 @@
 
 import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
-import Navbar from "./Navbar";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { signOut } from "@aws-amplify/auth";
+import { motion, useAnimation } from "framer-motion";
+import { getCurrentUser, fetchAuthSession } from "aws-amplify/auth";
+import Navbar from "./Navbar";
 import Modal from "./Modal";
 import Register from "./auth/Register";
 import Login from "./auth/Login";
-import { motion, useAnimation } from "framer-motion";
-import { getCurrentUser, fetchAuthSession } from "aws-amplify/auth";
 
 const Header = () => {
   const [hasBorder, setHasBorder] = useState(false);
@@ -20,8 +22,8 @@ const Header = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const session = await fetchAuthSession();
       try {
+        const session = await fetchAuthSession();
         await getCurrentUser();
         setGivenName(
           String(session.tokens?.idToken?.payload.given_name).replace(
@@ -159,11 +161,7 @@ const Header = () => {
         </Modal>
       </Suspense>
 
-      {isSidebarOpen && (
-        <div className="relative">
-          <Navbar />
-        </div>
-      )}
+      <Navbar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
     </>
   );
 };
