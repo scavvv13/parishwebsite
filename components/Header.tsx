@@ -42,8 +42,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [controls]);
 
-  if (isLoading) return <p>Loading...</p>;
-
   return (
     <>
       <motion.header
