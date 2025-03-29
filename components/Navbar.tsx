@@ -4,7 +4,6 @@ import Link from "next/link";
 import { signOut } from "@aws-amplify/auth";
 import {
   Drawer,
-  DrawerTrigger,
   DrawerContent,
   DrawerHeader,
   DrawerTitle,
@@ -13,6 +12,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { LogOut, X } from "lucide-react";
 import { navLinks } from "../app/hooks/useNavItems";
+import ThemeToggle from "./ui/themeToggle";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
 interface NavbarProps {
   isOpen: boolean;
@@ -50,18 +51,32 @@ const Navbar = ({ isOpen, setIsOpen }: NavbarProps) => {
                 <X className="w-5 h-5" />
               </Button>
             </DrawerClose>
+            <ThemeToggle />
           </div>
         </DrawerHeader>
 
-        {/* Nav Links - FLEX WRAP FIX */}
-        <div className="pb-12 flex flex-wrap justify-center gap-x-36 gap-y-12">
+        {/* Nav Links as Horizontal Cards */}
+        <div className="pb-12 flex flex-row flex-wrap gap-4 justify-center mt-6">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-7xl font-bold dark:text-gray-800 text-gray-300 hover:text-black transition-all dark:hover:text-white"
+              className="transition-all hover:scale-105"
             >
-              {link.text}
+              <Card className="w-40 h-32 overflow-hidden border">
+                <CardContent className="p-0 h-20 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+                  {link.icon ? (
+                    <link.icon className="w-10 h-10 text-gray-600 dark:text-gray-300" />
+                  ) : (
+                    <div className="w-10 h-10 rounded-full bg-gray-300 dark:bg-gray-600" />
+                  )}
+                </CardContent>
+                <CardFooter className="p-0 h-12 flex items-center justify-center">
+                  <span className="font-medium text-gray-800 dark:text-gray-200 text-center text-sm px-2">
+                    {link.text}
+                  </span>
+                </CardFooter>
+              </Card>
             </Link>
           ))}
         </div>

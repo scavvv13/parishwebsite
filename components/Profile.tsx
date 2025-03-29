@@ -24,7 +24,7 @@ const Profile = () => {
         idNumber="01045"
         accessType="Admin"
         dateJoined="June 14, 2020"
-        profilePicture="/2x2.png"
+        profilePicture={user?.profile_picture || ""}
       />
       <Button
         variant="brutalist"

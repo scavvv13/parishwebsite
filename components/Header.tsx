@@ -10,8 +10,9 @@ import Modal from "./Modal";
 import Register from "./auth/Register";
 import Login from "./auth/Login";
 import Profile from "./Profile";
-import ThemeToggle from "./ui/themeToggle";
 import { useUser } from "../app/providers/UserProvider";
+import { Menu } from "lucide-react";
+import { Button } from "./ui/button";
 
 const Header = () => {
   const controls = useAnimation();
@@ -101,7 +102,7 @@ const Header = () => {
           px-4 py-1 lg:px-6 z-50 
           bg-white/80 dark:bg-black/70 
           transition-all duration-300 ease-in-out
-          ${hasBorder ? "border-b border-gray-200 dark:border-gray-800" : ""}
+          ${hasBorder ? "" : ""}
         `}
       >
         <div className="flex items-center space-x-4">
@@ -132,31 +133,7 @@ const Header = () => {
           </Link>
         </div>
 
-        <div className="flex items-center space-x-4">
-          <ThemeToggle />
-
-          <button
-            title="Menu"
-            className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 
-              transition-colors duration-200"
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-6 h-6 text-gray-700 dark:text-gray-200"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-          </button>
-
+        <div className="flex items-center space-x-2">
           <button
             onClick={() =>
               user ? setIsProfileModalOpen(true) : setIsLoginModalOpen(true)
@@ -166,14 +143,23 @@ const Header = () => {
     transition-colors duration-200"
           >
             {user ? (
-              <>
-                <span className="font-bold text-md text-gray-900 dark:text-white leading-none">
-                  {user.givenName} {user.familyName}
-                </span>
-                <span className="font-normal text-xs text-gray-600 dark:text-gray-400">
-                  admin
-                </span>
-              </>
+              <div className="flex flex-row  space-x-2">
+                <div className="flex flex-col place-content-center mr-3">
+                  <span className="font-bold text-md text-gray-900 dark:text-white leading-none">
+                    {user.givenName} {user.familyName}
+                  </span>
+                  <span className="font-normal text-xs text-gray-600 dark:text-gray-400 place-self-end">
+                    {user.groups[1]}
+                  </span>
+                </div>
+                <Image
+                  src={user.profile_picture}
+                  width={40}
+                  height={40}
+                  alt="Profile"
+                  className="w-10 h-10 rounded-full mt-1"
+                />
+              </div>
             ) : (
               <>
                 <span className="font-bold text-sm text-gray-900 dark:text-white leading-none">
@@ -185,6 +171,16 @@ const Header = () => {
               </>
             )}
           </button>
+          <Button
+            variant="outline"
+            title="Menu"
+            aria-label="Menu"
+            className="p-3 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 
+              transition-colors duration-200"
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          >
+            <Menu />
+          </Button>
         </div>
       </motion.header>
 
@@ -210,7 +206,7 @@ const Header = () => {
         <Modal
           isOpen={isProfileModalOpen}
           onClose={() => setIsProfileModalOpen(false)}
-          className="relative p-6 max-w-2xl w-full"
+          className="relative p-6 max-w-xl w-full"
         >
           <Profile />
         </Modal>

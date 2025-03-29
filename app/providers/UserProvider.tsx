@@ -11,8 +11,10 @@ import { getCurrentUser, fetchAuthSession } from "aws-amplify/auth";
 
 interface UserContextType {
   user: {
+    groups: string[];
     givenName: string;
     familyName: string;
+    profile_picture: string;
   } | null;
   isLoading: boolean;
 }
@@ -29,6 +31,14 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
         const session = await fetchAuthSession();
         await getCurrentUser();
         setUser({
+          groups: Array.isArray(
+            session.tokens?.idToken?.payload["cognito:groups"]
+          )
+            ? (session.tokens?.idToken?.payload["cognito:groups"] as string[])
+            : [],
+          profile_picture: String(
+            session.tokens?.idToken?.payload.picture || ""
+          ),
           givenName: String(session.tokens?.idToken?.payload.given_name || ""),
           familyName: String(
             session.tokens?.idToken?.payload.family_name || ""
