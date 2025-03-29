@@ -31,6 +31,11 @@ export default function Register({
     // TODO: Handle registration logic (API call, etc.)
   };
 
+  const switchToLogin = () => {
+    setIsLoginModalOpen(true);
+    setIsRegisterModalOpen(false);
+  };
+
   return (
     <div className="w-full">
       <strong className="playfair font-black text-5xl">Register</strong>
@@ -128,10 +133,7 @@ export default function Register({
       <p className="text-center text-sm dark:text-gray-300">
         Already have an account?{" "}
         <button
-          onClick={() => {
-            setIsLoginModalOpen(true);
-            setIsRegisterModalOpen(false);
-          }}
+          onClick={switchToLogin}
           className="text-black font-bold dark:text-white"
         >
           Login

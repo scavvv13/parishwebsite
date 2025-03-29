@@ -4,6 +4,7 @@ import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
+import { useRouter, useSearchParams } from "next/navigation";
 import Navbar from "./Navbar";
 import Modal from "./Modal";
 import Register from "./auth/Register";
@@ -13,11 +14,47 @@ import { useUser } from "../app/providers/UserProvider";
 
 const Header = () => {
   const controls = useAnimation();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const { user } = useUser(); //todo:use isLoading
   const [hasBorder, setHasBorder] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+
+  // Get modal state from URL query param
+  const modalParam = searchParams.get("modal");
+  const isLoginModalOpen = modalParam === "login";
+  const isRegisterModalOpen = modalParam === "register";
+
+  // Function to update URL when opening/closing modals
+  const setModal = (modalType: string | null) => {
+    const params = new URLSearchParams(searchParams.toString());
+
+    if (modalType) {
+      params.set("modal", modalType);
+    } else {
+      params.delete("modal");
+    }
+
+    // Update URL without reloading the page
+    router.push(`?${params.toString()}`, { scroll: false });
+  };
+
+  // Set modal state based on URL parameter functions
+  const setIsLoginModalOpen = (value: boolean) => {
+    if (value) {
+      setModal("login");
+    } else {
+      setModal(null);
+    }
+  };
+
+  const setIsRegisterModalOpen = (value: boolean) => {
+    if (value) {
+      setModal("register");
+    } else {
+      setModal(null);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {

@@ -45,6 +45,11 @@ export default function Login({
     }
   };
 
+  const switchToRegister = () => {
+    setIsLoginModalOpen(false);
+    setIsRegisterModalOpen(true);
+  };
+
   return (
     <div className="w-full">
       <strong className="playfair font-black text-5xl">Login</strong>
@@ -137,10 +142,7 @@ export default function Login({
       <p className="text-center dark:text-gray-300 text-sm">
         Don&apos;t have an account?{" "}
         <button
-          onClick={() => {
-            setIsLoginModalOpen(false);
-            setIsRegisterModalOpen(true);
-          }}
+          onClick={switchToRegister}
           className="text-black dark:text-white font-bold"
         >
           Register
