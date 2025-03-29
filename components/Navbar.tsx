@@ -11,7 +11,7 @@ import {
   DrawerClose,
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
-import { LogOut } from "lucide-react";
+import { LogOut, X } from "lucide-react";
 import { navLinks } from "../app/hooks/useNavItems";
 
 interface NavbarProps {
@@ -31,14 +31,30 @@ const Navbar = ({ isOpen, setIsOpen }: NavbarProps) => {
 
   return (
     <Drawer open={isOpen} onOpenChange={setIsOpen}>
-      <DrawerTrigger asChild></DrawerTrigger>
-      <DrawerContent className=" border-l border-black">
-        <DrawerHeader>
-          <DrawerTitle className="text-3xl font-extrabold">Menu</DrawerTitle>
+      {/* Drawer Content */}
+      <DrawerContent className="p-4">
+        {/* Header with Logout & Close Buttons */}
+        <DrawerHeader className="flex justify-between items-center">
+          <DrawerTitle className="text-4xl font-black">Menu</DrawerTitle>
+          <div className="flex gap-2">
+            <Button
+              variant="logout"
+              onClick={handleLogout}
+              className="flex items-center gap-2"
+            >
+              <LogOut className="w-4 h-4" />
+              Logout
+            </Button>
+            <DrawerClose asChild>
+              <Button variant="default">
+                <X className="w-5 h-5" />
+              </Button>
+            </DrawerClose>
+          </div>
         </DrawerHeader>
 
         {/* Nav Links - FLEX WRAP FIX */}
-        <div className="p-10 flex flex-wrap justify-center gap-x-36 gap-y-12">
+        <div className="pb-12 flex flex-wrap justify-center gap-x-36 gap-y-12">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -49,22 +65,6 @@ const Navbar = ({ isOpen, setIsOpen }: NavbarProps) => {
             </Link>
           ))}
         </div>
-
-        {/* Logout & Close Buttons */}
-        <div className="p-4 border-t">
-          <Button
-            variant="destructive"
-            className="w-full flex items-center justify-center gap-2 text-2xl py-4"
-            onClick={handleLogout}
-          >
-            <LogOut className="w-7 h-7" /> Logout
-          </Button>
-        </div>
-        <DrawerClose asChild>
-          <Button variant="outline" className="w-full mt-2 text-2xl py-4">
-            Close
-          </Button>
-        </DrawerClose>
       </DrawerContent>
     </Drawer>
   );

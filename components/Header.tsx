@@ -9,6 +9,7 @@ import Navbar from "./Navbar";
 import Modal from "./Modal";
 import Register from "./auth/Register";
 import Login from "./auth/Login";
+import Profile from "./Profile";
 import ThemeToggle from "./ui/themeToggle";
 import { useUser } from "../app/providers/UserProvider";
 
@@ -24,6 +25,7 @@ const Header = () => {
   const modalParam = searchParams.get("modal");
   const isLoginModalOpen = modalParam === "login";
   const isRegisterModalOpen = modalParam === "register";
+  const isProfileModalOpen = modalParam === "profile";
 
   // Function to update URL when opening/closing modals
   const setModal = (modalType: string | null) => {
@@ -35,7 +37,6 @@ const Header = () => {
       params.delete("modal");
     }
 
-    // Update URL without reloading the page
     router.push(`?${params.toString()}`, { scroll: false });
   };
 
@@ -51,6 +52,14 @@ const Header = () => {
   const setIsRegisterModalOpen = (value: boolean) => {
     if (value) {
       setModal("register");
+    } else {
+      setModal(null);
+    }
+  };
+
+  const setIsProfileModalOpen = (value: boolean) => {
+    if (value) {
+      setModal("profile");
     } else {
       setModal(null);
     }
@@ -149,10 +158,12 @@ const Header = () => {
           </button>
 
           <button
-            onClick={() => setIsLoginModalOpen(true)}
+            onClick={() =>
+              user ? setIsProfileModalOpen(true) : setIsLoginModalOpen(true)
+            }
             className="hidden lg:flex flex-col items-end justify-center 
-              p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 
-              transition-colors duration-200"
+    p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 
+    transition-colors duration-200"
           >
             {user ? (
               <>
@@ -195,6 +206,13 @@ const Header = () => {
             setIsLoginModalOpen={setIsLoginModalOpen}
             setIsRegisterModalOpen={setIsRegisterModalOpen}
           />
+        </Modal>
+        <Modal
+          isOpen={isProfileModalOpen}
+          onClose={() => setIsProfileModalOpen(false)}
+          className="relative p-6 max-w-2xl w-full"
+        >
+          <Profile />
         </Modal>
       </Suspense>
 

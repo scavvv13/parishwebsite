@@ -9,18 +9,24 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
+  className?: string; // Optional className prop
 }
 
-export default function Modal({ isOpen, onClose, children }: ModalProps) {
+export default function Modal({
+  isOpen,
+  onClose,
+  children,
+  className = "relative bg-white dark:bg-black p-6 rounded-lg shadow-lg max-w-lg w-full", // Default class
+}: ModalProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true); // Ensure component is mounted before using document
+    setMounted(true);
   }, []);
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+      document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
@@ -29,7 +35,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
     };
   }, [isOpen]);
 
-  if (!mounted) return null; // Ensure modal is only rendered on the client
+  if (!mounted) return null;
 
   return createPortal(
     <AnimatePresence>
@@ -45,13 +51,13 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.1 }}
-            className="relative bg-white dark:bg-black p-6 rounded-lg shadow-lg max-w-lg w-full"
+            className={className} // Apply dynamic class
           >
             <Button
               variant="ghost"
               size="icon"
               onClick={onClose}
-              className="absolute top-3 right-3"
+              className="absolute top-2 right-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

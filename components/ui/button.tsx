@@ -21,6 +21,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         brutalist:
           "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+        logout: "bg-red-600 text-primary-foreground shadow hover:bg-primary/90",
       },
       size: {
         default: "h-9 px-4 py-2",
