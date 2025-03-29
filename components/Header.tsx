@@ -13,7 +13,7 @@ import { useUser } from "../app/providers/UserProvider";
 
 const Header = () => {
   const controls = useAnimation();
-  const { user, isLoading } = useUser();
+  const { user } = useUser(); //todo:use isLoading
   const [hasBorder, setHasBorder] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);

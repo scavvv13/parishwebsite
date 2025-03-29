@@ -5,7 +5,6 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Separator } from "../ui/separator";
-import { useRouter } from "next/navigation";
 
 interface RegisterProps {
   setIsRegisterModalOpen: (value: boolean) => void;
@@ -16,7 +15,6 @@ export default function Register({
   setIsRegisterModalOpen,
   setIsLoginModalOpen,
 }: RegisterProps) {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
