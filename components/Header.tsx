@@ -4,7 +4,6 @@ import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
-import { useRouter, useSearchParams } from "next/navigation";
 import Navbar from "./Navbar";
 import Modal from "./Modal";
 import Register from "./auth/Register";
@@ -16,33 +15,34 @@ import { Button } from "./ui/button";
 
 const Header = () => {
   const controls = useAnimation();
-  const router = useRouter();
-  const searchParams = useSearchParams();
   const { user } = useUser(); //todo:use isLoading
   const [hasBorder, setHasBorder] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  // Get modal state from URL query param
-  const modalParam = searchParams.get("modal");
-  const isLoginModalOpen = modalParam === "login";
-  const isRegisterModalOpen = modalParam === "register";
-  const isProfileModalOpen = modalParam === "profile";
+  // State for modals
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
 
   // Function to update URL when opening/closing modals
   const setModal = (modalType: string | null) => {
-    const params = new URLSearchParams(searchParams.toString());
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
 
-    if (modalType) {
-      params.set("modal", modalType);
-    } else {
-      params.delete("modal");
+      if (modalType) {
+        url.searchParams.set("modal", modalType);
+      } else {
+        url.searchParams.delete("modal");
+      }
+
+      // Use history.pushState to update URL without full navigation
+      window.history.pushState({}, "", url.toString());
     }
-
-    router.push(`?${params.toString()}`, { scroll: false });
   };
 
-  // Set modal state based on URL parameter functions
-  const setIsLoginModalOpen = (value: boolean) => {
+  // Set modal state and update URL
+  const handleLoginModalToggle = (value: boolean) => {
+    setIsLoginModalOpen(value);
     if (value) {
       setModal("login");
     } else {
@@ -50,7 +50,8 @@ const Header = () => {
     }
   };
 
-  const setIsRegisterModalOpen = (value: boolean) => {
+  const handleRegisterModalToggle = (value: boolean) => {
+    setIsRegisterModalOpen(value);
     if (value) {
       setModal("register");
     } else {
@@ -58,13 +59,48 @@ const Header = () => {
     }
   };
 
-  const setIsProfileModalOpen = (value: boolean) => {
+  const handleProfileModalToggle = (value: boolean) => {
+    setIsProfileModalOpen(value);
     if (value) {
       setModal("profile");
     } else {
       setModal(null);
     }
   };
+
+  // Handle popstate (browser back/forward) event
+  useEffect(() => {
+    const handlePopState = () => {
+      if (typeof window !== "undefined") {
+        const searchParams = new URLSearchParams(window.location.search);
+        const modalParam = searchParams.get("modal");
+
+        // Update modal states based on URL
+        setIsLoginModalOpen(modalParam === "login");
+        setIsRegisterModalOpen(modalParam === "register");
+        setIsProfileModalOpen(modalParam === "profile");
+      }
+    };
+
+    // Initial check on mount
+    handlePopState();
+
+    // Listen for browser back/forward
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+  // Check URL on initial load
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const searchParams = new URLSearchParams(window.location.search);
+      const modalParam = searchParams.get("modal");
+
+      setIsLoginModalOpen(modalParam === "login");
+      setIsRegisterModalOpen(modalParam === "register");
+      setIsProfileModalOpen(modalParam === "profile");
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,8 +121,11 @@ const Header = () => {
         });
       }
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
   }, [controls]);
 
   return (
@@ -136,7 +175,9 @@ const Header = () => {
         <div className="flex items-center space-x-2">
           <button
             onClick={() =>
-              user ? setIsProfileModalOpen(true) : setIsLoginModalOpen(true)
+              user
+                ? handleProfileModalToggle(true)
+                : handleLoginModalToggle(true)
             }
             className="hidden lg:flex flex-col items-end justify-center 
     p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 
@@ -187,25 +228,25 @@ const Header = () => {
       <Suspense fallback={null}>
         <Modal
           isOpen={isLoginModalOpen}
-          onClose={() => setIsLoginModalOpen(false)}
+          onClose={() => handleLoginModalToggle(false)}
         >
           <Login
-            setIsLoginModalOpen={setIsLoginModalOpen}
-            setIsRegisterModalOpen={setIsRegisterModalOpen}
+            setIsLoginModalOpen={handleLoginModalToggle}
+            setIsRegisterModalOpen={handleRegisterModalToggle}
           />
         </Modal>
         <Modal
           isOpen={isRegisterModalOpen}
-          onClose={() => setIsRegisterModalOpen(false)}
+          onClose={() => handleRegisterModalToggle(false)}
         >
           <Register
-            setIsLoginModalOpen={setIsLoginModalOpen}
-            setIsRegisterModalOpen={setIsRegisterModalOpen}
+            setIsLoginModalOpen={handleLoginModalToggle}
+            setIsRegisterModalOpen={handleRegisterModalToggle}
           />
         </Modal>
         <Modal
           isOpen={isProfileModalOpen}
-          onClose={() => setIsProfileModalOpen(false)}
+          onClose={() => handleProfileModalToggle(false)}
           className="relative p-6 max-w-xl w-full"
         >
           <Profile />

@@ -15,7 +15,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="flex flex-col items-start text-start pt-10 lg:pb-36 md:pb-36 pb-14 lg:px-4 border-r-black ">
+      <div className="flex flex-col lg:items-start items-center text-center lg:text-start pt-10 lg:pb-36 md:pb-36 pb-14 lg:px-4 border-r-black ">
         <div className="mb-8 flex gap-6 ">
           <Image
             src="/dio.png"
