@@ -138,7 +138,7 @@ const Header = () => {
         }}
         className={`
           fixed top-0 left-0 right-0 flex items-center justify-between 
-          px-4 py-1 lg:px-6 z-50 
+          py-3 px-3 lg:py-1 lg:px-6 z-50 
           bg-white/80 dark:bg-black/70 
           transition-all duration-300 ease-in-out
           ${hasBorder ? "" : ""}
@@ -151,18 +151,18 @@ const Header = () => {
               width={50}
               height={50}
               alt="Logo"
-              className="w-12 lg:w-14 rounded-full transition-transform hover:scale-105"
+              className="w-9 lg:w-14 rounded-full transition-transform hover:scale-105"
             />
             <div className="hidden sm:block">
               <div className="flex flex-col leading-none ">
                 <strong
-                  className="playfair font-black text-sm lg:text-2xl 
+                  className="playfair font-black text-md lg:text-2xl 
                   text-gray-900 dark:text-white leading-none"
                 >
                   Madonna Del Divino Amore Parish
                 </strong>
                 <span
-                  className="instrument text-xs lg:text-lg 
+                  className="instrument text-xs lg:text-lg sm:hidden md:block
                   text-gray-600 dark:text-gray-300 leading-none"
                 >
                   Diocese of Parañaque

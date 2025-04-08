@@ -12,6 +12,7 @@ import AmplifyProvider from "@/components/AmplifyProvider";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import { UserProvider } from "./providers/UserProvider";
 
+
 const pinyonScript = Pinyon_Script({
   weight: "400",
   variable: "--font-pinyon-script",
@@ -132,6 +133,7 @@ export default function RootLayout({
             >
               <Header />
               <div className="pt-[60px]">{children}</div>
+              
             </ThemeProvider>
           </UserProvider>
         </AmplifyProvider>

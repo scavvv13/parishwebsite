@@ -1,50 +1,81 @@
+"use client";
+
 import React from "react";
-import Image from "next/image";
 import Clock from "@/components/Clock";
+import { Card, CardHeader, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+const massSchedule = [
+  {
+    day: "Sunday",
+    time: "9:00 AM",
+    location: "Main Sanctuary",
+  },
+  {
+    day: "Sunday",
+    time: "11:00 AM",
+    location: "Main Sanctuary",
+  },
+  {
+    day: "Wednesday",
+    time: "6:30 PM",
+    location: "Chapel",
+  },
+  {
+    day: "Friday",
+    time: "12:00 PM",
+    location: "Small Hall",
+  },
+];
 
 const Schedule = () => {
   return (
-    <div className="flex flex-col lg:flex-row justify-between px-2 mt-10 lg:px-14 py-8 min-h-screen w-full overflow-x-hidden">
-      {/* div for lg:left side sm:top ; saints */}
-      <div className="w-full lg:w-1/2 mb-6 lg:mb-0">
-        <div className="flex flex-row gap-2 lg:gap-4 justify-center lg:justify-start overflow-x-auto">
-          <div className="flex">
-            <Image src={"/Saint1.png"} alt="Saint 1" width={200} height={20} />
-          </div>
-          <div className="flex">
-            <Image src={"/Saint2.png"} alt="Saint 2" width={200} height={20} />
-          </div>
-          <div className="flex">
-            <Image src={"/Saint3.png"} alt="Saint 3" width={200} height={20} />
-          </div>
-        </div>
-      </div>
-
-      {/* div for lg:right side sm:bottom ; clock and date */}
-      <div className="w-full lg:w-1/2 flex flex-col ">
-        <div className="mb-6 lg:mb-0">
-          <strong className="playfair text-[30px] lg:text-[72px] font-normal block">
+    <div className="flex flex-col lg:flex-row justify-between gap-10 px-4 lg:px-14 py-10 min-h-screen w-full overflow-x-hidden">
+      {/* Left Column: Title and Clock */}
+      <div className="w-full lg:w-1/2 flex flex-col">
+        <div className="mb-6">
+          <h1 className="playfair text-[30px] lg:text-[72px] font-normal">
             Mass Schedule
-          </strong>
+          </h1>
           <Clock />
         </div>
 
-        {/* div for the two buttons */}
-        <div className="flex flex-row  gap-4 font-semibold justify-center lg:justify-end pt-20 lg:pt-40">
-          <button
+        {/* Buttons */}
+        <div className="flex flex-row gap-4 font-semibold justify-center lg:justify-start pt-10">
+          <Button
+            variant="outline"
+            className="relative px-6 lg:px-10 py-3 text-xs lg:text-sm border dark:border-white"
             title="Stream Online"
-            className="px-10 lg:px-[70px] py-[15px] text-xs border border-black dark:border-white lg:text-md relative"
           >
             Stream Online
-            <div className="absolute top-2 right-2 w-[4.5px] h-[4.5px] bg-red-600 rounded-full"></div>
-          </button>
-          <button
+            <div className="absolute top-2 right-2 w-[6px] h-[6px] bg-red-600 rounded-full"></div>
+          </Button>
+          <Button
+            className="bg-black text-white dark:text-black dark:bg-white px-6 lg:px-10 py-3 text-xs lg:text-sm"
             title="Mass Archive"
-            className="bg-black  px-10 lg:px-[70px] py-[15px] text-xs lg:text-md text-white dark:text-black dark:bg-white "
           >
             Mass Archive
-          </button>
+          </Button>
         </div>
+      </div>
+
+      {/* Right Column: Mass Schedule Cards */}
+      <div className="w-full lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-6">
+        {massSchedule.map((mass, index) => (
+          <Card key={index} className="shadow-md">
+            <CardHeader>
+              <h3 className="text-lg font-semibold">{mass.day}</h3>
+            </CardHeader>
+            <CardContent className="text-sm">
+              <p>
+                <strong>Time:</strong> {mass.time}
+              </p>
+              <p>
+                <strong>Location:</strong> {mass.location}
+              </p>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </div>
   );

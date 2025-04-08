@@ -63,7 +63,7 @@ export default {
         serif: ["var(--font-bodoni-moda)", "Bodoni Moda", "serif"],
       },
       screens: {
-        sm: "200px",
+        sm: "150px",
         md: "768px",
         lg: "1074px",
       },

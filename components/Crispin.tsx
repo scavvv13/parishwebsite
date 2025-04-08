@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const Crispin = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const nodeRef = useRef<HTMLDivElement>(null as unknown as HTMLDivElement); // Fix: Avoid `findDOMNode` error
+  const nodeRef = useRef<HTMLDivElement>((null as unknown) as HTMLDivElement); // Fix: Avoid `findDOMNode` error
 
   return (
     <Draggable nodeRef={nodeRef}>
@@ -21,8 +21,8 @@ const Crispin = () => {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="15"
-                height="15"
+                width="20"
+                height="20"
                 viewBox="0 0 32 32"
               >
                 <path

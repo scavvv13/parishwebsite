@@ -20,8 +20,8 @@ export default function QuickLinks() {
           className="flex items-center gap-2 px-10"
           onClick={() => navigateTo(btn.href)}
         >
-          <Image src={btn.iconPath} alt={btn.label} width={24} height={24} />
           {btn.label}
+          <Image src={btn.iconPath} alt={btn.label} width={18} height={18} />
         </Button>
       ))}
     </div>
